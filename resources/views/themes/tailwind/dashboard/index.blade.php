@@ -3,7 +3,9 @@
 
 @section('content')
 
-
+<?php $data = session()->all();
+// print_r($data);
+?>
 	<div class="flex flex-col px-8 mx-auto my-6 lg:flex-row max-w-7xl xl:px-5">
 	    <div class="flex flex-col justify-start flex-1 mb-5 overflow-hidden bg-white border rounded-lg lg:mr-3 lg:mb-0 border-gray-150">
 	        <div class="flex flex-wrap items-center justify-between p-5 bg-white border-b border-gray-150 sm:flex-no-wrap">
@@ -22,6 +24,10 @@
 	        </div>
 	        <div class="relative p-5">
 	            <p class="text-base leading-loose text-gray-500">This is your application <a href="{{ route('wave.dashboard') }}" class="underline text-wave-500">dashboard</a>, you can customize this view inside of <code class="px-2 py-1 font-mono text-base font-medium text-gray-600 bg-gray-100 rounded-md">{{ theme_folder('/dashboard/index.blade.php') }}</code><br><br> (Themes are located inside the <code>resources/views/themes</code> folder)</p>
+				<p>Q&A</p>
+				
+				
+
 				<span class="inline-flex mt-5 rounded-md shadow-sm">
 	                <a href="{{ url('docs') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
 	                    Read The Docs
@@ -36,21 +42,92 @@
 				</div>
 				<div class="relative flex-1">
 	                <h3 class="text-lg font-medium leading-6 text-gray-700">
-						Learn more about Wave
+						Let's get you some answers!
 	                </h3>
 	                <p class="text-sm leading-5 text-gray-500 mt">
-						Are you more of a visual learner?
+						Just ask your question below and we'll provide you an answer.
 	                </p>
 				</div>
 
 	        </div>
 	        <div class="relative p-5">
-				<p class="text-base leading-loose text-gray-500">Make sure to head on over to the Wave Video Tutorials to learn more how to use and customize Wave.<br><br>Click on the button below to checkout the video tutorials.</p>
-				<span class="inline-flex mt-5 rounded-md shadow-sm">
-	                <a href="https://devdojo.com/course/wave" target="_blank" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
-						Watch The Videos
-	                </a>
-				</span>
+				
+				<?php $openapi = env('OPEN_API_KEY'); ?>
+
+				<div class="container">
+
+					<div class="chatbot-container">
+						<div class="chatbot-header">
+						<h2 class="text-base leading-loose text-gray-500">What can we help you with?</h2>
+						</div>
+						<div class="chatbot-content">
+
+						<form class="chatbot-form">
+							<textarea id="chatbot-input" rows="4" cols="50" required></textarea><br />
+							<button class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50" type="submit">Get Answer</button>
+						</form>
+						</div>
+						<div class="chatbot-message-container">
+					</div>
+				</div>
+
+				<script>
+				const chatContainer = document.querySelector(".chatbot-message-container");
+				const form = document.querySelector(".chatbot-form");
+
+				form.addEventListener("submit", (event) => {
+				event.preventDefault();
+				const input = document.querySelector("#chatbot-input");
+				const userMessage = input.value;
+				input.value = "";
+				// Call the OpenAI API to generate a response
+				fetch(`https://api.openai.com/v1/completions`, {
+					method: "POST",
+					headers: {
+					"Content-Type": "application/json",
+					"Authorization":`Bearer <?php echo($openapi); ?>`
+					},
+					body: JSON.stringify({
+					model: "text-davinci-003",
+					prompt: userMessage,
+					temperature: 0.7,
+					max_tokens: 256,
+					top_p: 1,
+					frequency_penalty: 0,
+					presence_penalty: 0
+					}),
+					})
+				.then(response => response.json())
+				.then(data => {
+					const chatbotMessage = data.choices[0].text;
+					const messageContainer = document.createElement("div");
+					messageContainer.innerHTML = 
+					`<div class="chatbot-message"><p class="text-base leading-loose text-gray-500"><br /><b>You asked:</b><br /> ${userMessage} <br/><br />
+					<b>Answer:</b> <br />
+					 ${chatbotMessage} </p></div>`;
+					chatContainer.appendChild(messageContainer);
+					});
+				});
+				</script>
+				<?php
+				// // $userMessage = ${userMessage};
+				// echo $userMessage;
+				// exit();
+				// if ($userMessage != '') {
+				// $query = "SELECT id FROM models WHERE user_id = '$userId' and model = '${userMessage}'";
+    			// $result = mysqli_query($conn, $query);
+    			// $models = mysqli_fetch_assoc($result);
+   				// $modelId = $models['id'];
+    			// $answerId = $models['answer'];
+
+				// $sqlQ = "INSERT INTO models (user_id, model) VALUES (?,?)"; 
+				// $stmt = $conn->prepare($sqlQ); 
+				// $stmt->bind_param("is", $user['id'], $question); 
+				// $insertUser = $stmt->execute();
+				// };
+	?>
+
+				</div>
 			</div>
 	    </div>
 
