@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Wave\Http\Controllers\GPT3Controller;
 
 Route::impersonate();
 
@@ -34,10 +35,29 @@ Route::post('checkout', '\Wave\Http\Controllers\SubscriptionController@checkout'
 Route::get('test', '\Wave\Http\Controllers\SubscriptionController@test');
 
 Route::group(['middleware' => 'wave'], function () {
-	Route::get('dashboard', '\Wave\Http\Controllers\DashboardController@index')->name('wave.dashboard');
-	Route::get('/my-page', function () {
+	Route::get('dashboard', '\Wave\Http\Controllers\DashboardController@index', function() {
+		$question = '';
+		$content = '';
+		return view('dashboard', compact('question', 'content'));
+	})->name('wave.dashboard');
+	Route::any('/my-page', function () {
     return view('my-page');
 })->name('my-page');
+
+// Route::get('dashboard', function () {
+//     $question = '';
+//     $content = '';
+//     return view('write', compact('question', 'content'));
+// })->name('wave.dashboard');
+
+Route::get('write', function () {
+    $question = '';
+    $content = '';
+    return view('write', compact('question', 'content'));
+});
+
+Route::any('write/generate', 'App\Http\Controllers\ArticleGenerator@index');
+
 });
 
 

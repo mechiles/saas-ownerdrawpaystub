@@ -218,4 +218,7 @@ return [
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ])->toArray(),
 
+    'openai_api_key' => env('OPEN_API_KEY'),
+
+
 ];

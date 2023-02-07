@@ -5,6 +5,8 @@
 
 <?php $data = session()->all();
 // print_r($data);
+$user = Auth::user()->id;
+
 ?>
 	<div class="flex flex-col px-8 mx-auto my-6 lg:flex-row max-w-7xl xl:px-5">
 	    <div class="flex flex-col justify-start flex-1 mb-5 overflow-hidden bg-white border rounded-lg lg:mr-3 lg:mb-0 border-gray-150">
@@ -14,25 +16,36 @@
 				</div>
 				<div class="relative flex-1">
 	                <h3 class="text-lg font-medium leading-6 text-gray-700">
-	                    Welcome to your Dashboard
+	                    Welcome to your Dashboard, {{ Auth::user()->name }}. Your user ID is {{ Auth::user()->id }}.
 	                </h3>
-	                <p class="text-sm leading-5 text-gray-500 mt">
-	                    Learn More Below
-	                </p>
+	                
 				</div>
 
 	        </div>
 	        <div class="relative p-5">
-	            <p class="text-base leading-loose text-gray-500">This is your application <a href="{{ route('wave.dashboard') }}" class="underline text-wave-500">dashboard</a>, you can customize this view inside of <code class="px-2 py-1 font-mono text-base font-medium text-gray-600 bg-gray-100 rounded-md">{{ theme_folder('/dashboard/index.blade.php') }}</code><br><br> (Themes are located inside the <code>resources/views/themes</code> folder)</p>
-				<p>Q&A</p>
-				
+	            <!-- <p class="text-base leading-loose text-gray-500">This is your application <a href="{{ route('wave.dashboard') }}" class="underline text-wave-500">dashboard</a>, you can customize this view inside of <code class="px-2 py-1 font-mono text-base font-medium text-gray-600 bg-gray-100 rounded-md">{{ theme_folder('/dashboard/index.blade.php') }}</code><br><br> (Themes are located inside the <code>resources/views/themes</code> folder)</p> -->
+
+				<p class="text-lg leading-5 text-gray-500 mt">
+	                    Below are your previous questions and answers:
+	                </p><p>&nbsp;</p><hr /><br />
+					<?php
+					$questions = DB::table('models')->where('user_id', $user)->get();
+ 
+						foreach ($questions as $question)
+						{
+							echo '<p class="text-sm leading-5 text-gray-500 mt">Question: ' . $question->question . '<br /><br />';
+							echo "Answer: " . $question->answer . '</p><br /><hr />';
+							// var_dump($question->question, $question->answer);
+						}
+					?>
 				
 
 				<span class="inline-flex mt-5 rounded-md shadow-sm">
-	                <a href="{{ url('docs') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
-	                    Read The Docs
+	                <a href="{{ url('write') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
+	                   Click Here To Ask
 	                </a>
 				</span>
+				
 			</div>
 		</div>
 		<div class="flex flex-col justify-start flex-1 overflow-hidden bg-white border rounded-lg lg:ml-3 border-gray-150">
@@ -60,18 +73,23 @@
 						<div class="chatbot-header">
 						<h2 class="text-base leading-loose text-gray-500">What can we help you with?</h2>
 						</div>
-						<div class="chatbot-content">
+						<span class="inline-flex mt-5 rounded-md shadow-sm">
+	                <a href="{{ url('write') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
+	                   Click Here To Get Answers
+	                </a>
+				</span>
+						<!-- <div class="chatbot-content">
 
-						<form class="chatbot-form">
-							<textarea id="chatbot-input" rows="4" cols="50" required></textarea><br />
+						<form class="chatbot-form" action="/write/generate" method="post">
+							<textarea id="chatbot-input" name="question" rows="4" cols="50" required></textarea><br />
 							<button class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50" type="submit">Get Answer</button>
 						</form>
 						</div>
 						<div class="chatbot-message-container">
-					</div>
+					</div> -->
 				</div>
 
-				<script>
+				<!-- <script>
 				const chatContainer = document.querySelector(".chatbot-message-container");
 				const form = document.querySelector(".chatbot-form");
 
@@ -85,7 +103,7 @@
 					method: "POST",
 					headers: {
 					"Content-Type": "application/json",
-					"Authorization":`Bearer <?php echo($openapi); ?>`
+					"Authorization":`Bearer `
 					},
 					body: JSON.stringify({
 					model: "text-davinci-003",
@@ -108,25 +126,7 @@
 					chatContainer.appendChild(messageContainer);
 					});
 				});
-				</script>
-				<?php
-				// // $userMessage = ${userMessage};
-				// echo $userMessage;
-				// exit();
-				// if ($userMessage != '') {
-				// $query = "SELECT id FROM models WHERE user_id = '$userId' and model = '${userMessage}'";
-    			// $result = mysqli_query($conn, $query);
-    			// $models = mysqli_fetch_assoc($result);
-   				// $modelId = $models['id'];
-    			// $answerId = $models['answer'];
-
-				// $sqlQ = "INSERT INTO models (user_id, model) VALUES (?,?)"; 
-				// $stmt = $conn->prepare($sqlQ); 
-				// $stmt->bind_param("is", $user['id'], $question); 
-				// $insertUser = $stmt->execute();
-				// };
-	?>
-
+				</script> -->
 				</div>
 			</div>
 	    </div>
