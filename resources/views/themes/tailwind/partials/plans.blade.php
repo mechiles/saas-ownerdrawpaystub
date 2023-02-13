@@ -61,7 +61,7 @@
     @endforeach
 </div>
 
-@if(config('wave.paddle.env') == 'sandbox')
+<!-- @if(config('wave.paddle.env') == 'sandbox')
     <div class="px-2 mx-auto mt-12 max-w-7xl">
         <div class="w-full p-10 text-gray-600 bg-blue-50 rounded-xl">
             <div class="flex items-center pb-4">
@@ -82,4 +82,4 @@
             </div>
         </div>
     </div>
-@endif
+@endif -->
