@@ -5,11 +5,11 @@
 
     <head>
         <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- <link href="https://fonts.bunny.net/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"> -->
 
         <script src="https://cdn.tailwindcss.com"></script>
 
-        <style>
+        <!-- <style>
             body {
                 font-family: 'Space Grotesk', sans-serif;
             }
@@ -18,13 +18,13 @@
                 color:gray
             }
 
-        </style>
+        </style> -->
 
-        <script src="https://unpkg.com/marked" defer></script>
+        <!-- <script src="https://unpkg.com/marked" defer></script> -->
 
     </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <!-- <body class="antialiased"> -->
+        <div class="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0 flex flex-col px-8 mx-auto my-6 lg:flex-row max-w-7xl xl:px-5">
             <div class="max-w-6xl w-full mx-auto sm:px-6 lg:px-8 space-y-4 py-4">
                 <div class="flex flex-wrap items-center justify-between p-5 bg-white border-b border-gray-150 sm:flex-no-wrap">
 				<div class="flex items-center justify-center w-12 h-12 mr-5 rounded-lg bg-wave-100">
@@ -45,7 +45,9 @@
                     <form action="/write/generate" method="post" class="inline-flex gap-2 w-full">
                         @csrf
                         <input required name="question" class="w-full outline-none text-lg leading-5 text-gray-500 font-bold" placeholder="Type your question..." />
-                        <button class="rounded-md bg-blue-500 items-center px-3 py-2 text-lg font-medium leading-4 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 text-white">Get Answer</button>
+                        <button class="inline-flex bg-blue-500 items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:bg-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 text-white">Get Answer</button>
+
+                        
                     </form>
                 </div>
                 <div class="w-full rounded-md bg-white border-2 border-gray-600 p-4 min-h-[420px] h-full text-gray-600">

@@ -40,9 +40,6 @@ Route::group(['middleware' => 'wave'], function () {
 		$content = '';
 		return view('dashboard', compact('question', 'content'));
 	})->name('wave.dashboard');
-	Route::any('/my-page', function () {
-    return view('my-page');
-})->name('my-page');
 
 // Route::get('dashboard', function () {
 //     $question = '';
