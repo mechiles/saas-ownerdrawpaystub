@@ -2,63 +2,64 @@
 
 return [
     (object)[
-        'title' => 'Authentication',
-        'description' => 'Fully loaded authentication, email verification, and password reset. Authentication in a snap!',
+        'title' => 'Access to accurate information',
+        'description' => 'The service provides accurate information and answers to questions, ensuring that students have access to the right information they need to succeed in their studies.',
         'image' => '/themes/tailwind/images/authentication.png'
     ],
     (object)[
-        'title' => 'User Profiles',
-        'description' => 'Customizable user profiles. Allow your users to enter data and easily customize their user profiles.',
+        'title' => 'Time-saving',
+        'description' => 'Students can save time by quickly getting answers to their questions without having to search through multiple sources.',
         'image' => '/themes/tailwind/images/profile.png'
     ],
     (object)[
-        'title' => 'User Impersonation',
-        'description' => 'With user impersonations you can login as another user and resolve an issue or troubleshoot a bug.',
+        'title' => 'Improved Understanding',
+        'description' => 'The service provides in-depth answers that help students understand difficult concepts more easily, which can lead to better grades.',
         'image' => '/themes/tailwind/images/impersonation.png'
     ],
     (object)[
-        'title' => 'Subscriptions',
-        'description' => 'Allow users to pay for your service and signup for a subscription using Paddle Payments.',
+        'title' => 'Convenient',
+        'description' => 'Students can access the service from anywhere at any time, making it easy for them to get answers to their questions whenever they need them.',
         'image' => '/themes/tailwind/images/subscriptions.png'
     ],
     (object)[
-        'title' => 'Subscription Plans',
-        'description' => 'Create new plans with different features and intrigue your users to subscribe to any plan.',
+        'title' => 'Affordable',
+        'description' => 'With a monthly fee of $5 or an annual fee of $50, the service is affordable for most students, making it accessible to everyone.',
         'image' => '/themes/tailwind/images/plans.png'
     ],
     (object)[
-        'title' => 'User Roles',
-        'description' => 'Grant user permissions based on roles, you can then assign a role to a specific plan.',
+        'title' => 'Personalized',
+        'description' => 'The service uses context to provide personalized answers to questions, ensuring that students receive answers tailored to their needs.',
         'image' => '/themes/tailwind/images/roles.png'
     ],
     (object)[
-        'title' => 'Notifications',
-        'description' => 'Ready-to-use Notification System which integrates with the default Laravel notification feature.',
+        'title' => 'Increased Confidence',
+        'description' => 'By getting accurate answers to their questions, students can feel more confident in their ability to solve problems and understand complex concepts.',
         'image' => '/themes/tailwind/images/notifications.png'
     ],
     (object)[
-        'title' => 'Announcements',
-        'description' => 'Create user announcements to notify users about new features or updates in your application.',
+        'title' => 'Reduced Stress',
+        'description' => 'With the service, students can get answers to their questions quickly, reducing stress and helping them to focus on their studies.',
         'image' => '/themes/tailwind/images/announcements.png'
     ],
     (object)[
-        'title' => 'Blog',
-        'description' => 'Equipped with a fully-functional blog. Write posts related to your product to gain free SEO traffic.',
+        'title' => 'Improved Grades',
+        'description' => 'With better understanding and more accurate information, students are more likely to improve their grades and achieve their academic goals.',
         'image' => '/themes/tailwind/images/blog.png'
-    ],
-    (object)[
-        'title' => 'Fully Functional API',
-        'description' => 'Ready-to-consume API for your application. Create API tokens with role specific permissions.',
-        'image' => '/themes/tailwind/images/api.png'
-    ],
-    (object)[
-        'title' => 'Voyager Admin',
-        'description' => 'Wave has been crafted using Laravel & Voyager, which makes administering your app a breeze!',
-        'image' => '/themes/tailwind/images/admin.png'
-    ],
-    (object)[
-        'title' => 'Themes',
-        'description' => 'Fully configurable themes. Choose from a few starter themes to begin configuring to make it your own.',
-        'image' => '/themes/tailwind/images/themes.png'
     ]
+    // ,
+    // (object)[
+    //     'title' => 'Fully Functional API',
+    //     'description' => 'Ready-to-consume API for your application. Create API tokens with role specific permissions.',
+    //     'image' => '/themes/tailwind/images/api.png'
+    // ],
+    // (object)[
+    //     'title' => 'Voyager Admin',
+    //     'description' => 'Wave has been crafted using Laravel & Voyager, which makes administering your app a breeze!',
+    //     'image' => '/themes/tailwind/images/admin.png'
+    // ],
+    // (object)[
+    //     'title' => 'Themes',
+    //     'description' => 'Fully configurable themes. Choose from a few starter themes to begin configuring to make it your own.',
+    //     'image' => '/themes/tailwind/images/themes.png'
+    // ]
 ];

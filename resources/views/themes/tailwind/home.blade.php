@@ -60,9 +60,9 @@
             <svg class="w-full h-full text-white opacity-25 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 205"><defs/><g fill="#FFF" fill-rule="evenodd"><path d="M182.63 37c14.521 18.317 22.413 41.087 22.37 64.545C205 158.68 159.1 205 102.486 205c-39.382-.01-75.277-22.79-92.35-58.605C-6.939 110.58-2.172 68.061 22.398 37a105.958 105.958 0 00-9.15 43.352c0 54.239 39.966 98.206 89.265 98.206 49.3 0 89.265-43.973 89.265-98.206A105.958 105.958 0 00182.629 37z"/><path d="M103.11 0A84.144 84.144 0 01150 14.21C117.312-.651 78.806 8.94 56.7 37.45c-22.105 28.51-22.105 68.58 0 97.09 22.106 28.51 60.612 38.101 93.3 23.239-30.384 20.26-70.158 18.753-98.954-3.75-28.797-22.504-40.24-61.021-28.47-95.829C34.346 23.392 66.723.002 103.127.006L103.11 0z"/><path d="M116.479 13c36.655-.004 67.014 28.98 69.375 66.234 2.36 37.253-24.089 69.971-60.44 74.766 29.817-8.654 48.753-38.434 44.308-69.685-4.445-31.25-30.9-54.333-61.904-54.014-31.003.32-56.995 23.944-60.818 55.28v-1.777C46.99 44.714 78.096 13.016 116.479 13z"/></g></svg>
         </div>
 
-        <div class="relative z-20 flex flex-col items-start justify-start px-8 mx-auto sm:items-center max-w-7xl xl:px-5">
+        <div class="relative z-20 flex flex-col items-start justify-start px-8 mx-auto sm:items-center max-w-7xl xl:px-5" id="features">
             <h2 class="text-4xl font-medium leading-9 text-white">Awesome Features</h2>
-            <p class="mt-4 leading-6 sm:text-center text-wave-200">Wave has some cool features to help you rapidly build your Software as a Service.<br class="hidden md:block"> Here are a few awesome features you're going to love!</p>
+            <p class="mt-4 leading-6 sm:text-center text-wave-200">Course Q&A has an artificial intelligence system designed to help you find fast and accurate answers to your coursework.<br class="hidden md:block"> Here are a few awesome features you're going to love!</p>
 
             <div class="grid mt-16 gap-y-10 sm:grid-cols-2 sm:gap-x-8 md:gap-x-12 lg:grid-cols-3 xl:grid-cols-4 lg:gap-20">
                 @foreach(config('features') as $feature)
@@ -96,14 +96,14 @@
             <div class="max-w-6xl px-10 pb-20 mx-auto bg-gray-100">
                 <div class="flex flex-col items-center lg:flex-row">
                     <div class="flex flex-col justify-center w-full h-full mb-10 lg:pr-8 sm:w-4/5 md:items-center lg:mb-0 lg:items-start md:w-3/5 lg:w-1/2">
-                        <p class="mb-2 text-base font-medium tracking-tight uppercase text-wave-500">Our customers love our product</p>
+                        <p class="mb-2 text-base font-medium tracking-tight uppercase text-wave-500">Course Q&A is a game changer for many students!</p>
                         <h2
                             class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:leading-none lg:text-5xl xl:text-6xl">
                             Testimonials</h2>
-                        <p class="pr-5 my-6 text-lg text-gray-600 md:text-center lg:text-left">This is an example section of where you will add your testimonials for your Software as a Service.</p>
-                        <a href="#_"
+                        <p class="pr-5 my-6 text-lg text-gray-600 md:text-center lg:text-left">See some of the great stories.</p>
+                        <!-- <a href="#_"
                             class="flex items-center justify-center px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md shadow bg-wave-600 hover:bg-wave-500 focus:outline-none focus:border-wave-700 focus:shadow-outline-wave md:py-4 md:text-lg md:px-10">View
-                            Case Studies</a>
+                            Case Studies</a> -->
                     </div>
                     <div class="w-full sm:w-4/5 lg:w-1/2">
                         <blockquote class="flex flex-row-reverse items-center justify-between w-full col-span-1 p-6 bg-white rounded-lg shadow sm:flex-row">
@@ -114,12 +114,12 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">Wave allowed me to build the Software as a Service of my dreams!
+                                    <p class="mt-2 text-base text-gray-600">Course Q&A allowed me to easily write a 1,500 essay with definitive examples!
                                     </p>
                                 </div>
 
-                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Jane Cooper <span
-                                        class="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO SomeCompany</span></h3>
+                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Anonymous Student <span
+                                        class="mt-1 text-sm leading-5 text-gray-500 truncate"></span></h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
                             <img class="flex-shrink-0 w-24 h-24 bg-gray-300 rounded-full"
@@ -135,10 +135,10 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">Wave saved us hundreds of development hours. Creating a Software as a Service is now easier than ever with Wave.</p>
+                                    <p class="mt-2 text-base text-gray-600">Without a doubt, Course Q&A kept me from failing my algebra class!</p>
                                 </div>
-                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">John Doe <span
-                                        class="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO SomeCompany</span></h3>
+                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Anonymous Student<span
+                                        class="mt-1 text-sm leading-5 text-gray-500 truncate"></span></h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
                             <img class="flex-shrink-0 w-24 h-24 bg-gray-300 rounded-full"
@@ -154,11 +154,11 @@
                                         <path
                                             d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z" />
                                     </svg>
-                                    <p class="mt-2 text-base text-gray-600">This is the best solution available for creating your own Software as a Service!</p>
+                                    <p class="mt-2 text-base text-gray-600">This is the best solution available for learning complex systems for computer science!</p>
                                 </div>
 
-                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">John Smith <span
-                                        class="mt-1 text-sm leading-5 text-gray-500 truncate">- CEO SomeCompany</span></h3>
+                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Anonymous Student<span
+                                        class="mt-1 text-sm leading-5 text-gray-500 truncate"></span></h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
                             <img class="flex-shrink-0 w-24 h-24 bg-gray-300 rounded-full"

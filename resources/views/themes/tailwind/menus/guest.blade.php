@@ -24,13 +24,13 @@
                             <div class="relative flex flex-col items-start justify-start hidden w-full h-full max-w-xs bg-center bg-cover lg:block" style="background-image:url('https://cdn.devdojo.com/images/october2020/wave-menu-bg.jpeg')">
                                 <div class="relative flex flex-col items-start justify-center w-full h-full px-16 py-8">
 
-                                    <img src="https://cdn.devdojo.com/images/april2021/wave-light-logo.png" class="z-20 w-auto h-10">
-                                    <h3 class="z-30 mt-1 mt-3 text-lg font-thin text-wave-200">The Software as a Service Starter Kit.</h3>
+                                    <!-- <img src="https://cdn.devdojo.com/images/april2021/wave-light-logo.png" class="z-20 w-auto h-10"> -->
+                                    <h3 class="z-30 mt-1 mt-3 text-lg font-thin text-wave-200">The software for students, by students.</h3>
 
                                     <span class="relative z-20 inline-flex mt-5 rounded-md shadow-sm">
-                                        <a href="https://devdojo.com/wave" class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border border-transparent rounded-md text-wave-500 hover:bg-gray-100 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-100">
-                                            Get Wave Today
-                                            <span class="absolute top-0 right-0 px-3 py-1 -mt-4 -mr-8 text-xs text-white rounded-full bg-wave-400">Version 2</span>
+                                        <a href="{{ url('pricing') }}" class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border border-transparent rounded-md text-wave-500 hover:bg-gray-100 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-100">
+                                            Try Course Q&A Today
+                                            <span class="absolute top-0 right-0 px-3 py-1 -mt-4 -mr-8 text-xs text-white rounded-full bg-wave-400">Free Trial</span>
                                         </a>
                                     </span>
                                 </div>
@@ -44,10 +44,10 @@
                                     </div>
                                     <div class="space-y-1">
                                         <p class="text-base font-medium leading-6 text-gray-900">
-                                            Authentication
+                                            Accurate Information
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            Full authentication system including register, login, and lost password.
+                                            The service provides accurate information and answers to questions.
                                         </p>
                                     </div>
                                 </a>
@@ -57,10 +57,10 @@
                                     </div>
                                     <div class="space-y-1">
                                         <p class="text-base font-medium leading-6 text-gray-900">
-                                            Billing
+                                            Time-saving
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            Subscription billing built on top of Paddle
+                                            Students can save time by quickly getting answers to their questions.
                                         </p>
                                     </div>
                                 </a>
@@ -70,10 +70,10 @@
                                     </div>
                                     <div class="space-y-1">
                                         <p class="text-base font-medium leading-6 text-gray-900">
-                                            User Profiles
+                                            Improved Understanding
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            User profiles with image uploading and profile settings functionality.
+                                           The service provides in-depth answers that help students understand difficult concepts more easily.
                                         </p>
                                     </div>
                                 </a>
@@ -83,10 +83,10 @@
                                     </div>
                                     <div class="space-y-1">
                                         <p class="text-base font-medium leading-6 text-gray-900">
-                                            User Roles
+                                            Convenient
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            User roles and permissions based on user plans.
+                                           Students can access the service from anywhere at any time, making it easy for them to get answers.
                                         </p>
                                     </div>
                                 </a>
@@ -102,10 +102,10 @@
                                 </div>
                                 <div class="space-y-1">
                                     <p class="text-base font-medium leading-6 text-gray-900">
-                                        Notifications
+                                        Affordable
                                     </p>
                                     <p class="text-sm leading-5 text-gray-500">
-                                        User notification system that's easy to implement in your SAAS.
+                                        With a monthly fee of $5 or an annual fee of $50, the service is affordable for most students.
                                     </p>
                                 </div>
                             </a>
@@ -115,10 +115,10 @@
                                     </div>
                                     <div class="space-y-1">
                                         <p class="text-base font-medium leading-6 text-gray-900">
-                                            Fully Functional Blog
+                                            Personalized
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            Add blog posts to your application to drive-in organic traffic.
+                                            The service uses context to provide personalized answers to the student's questions.
                                         </p>
                                     </div>
                                 </a>
@@ -129,10 +129,10 @@
                                 </div>
                                 <div class="space-y-1">
                                     <p class="text-base font-medium leading-6 text-gray-900">
-                                        Themes
+                                        Increased Confidence
                                     </p>
                                     <p class="text-sm leading-5 text-gray-500">
-                                        Theme support with your favorite CSS libraries.
+                                        By getting accurate answers, students can  confident in their ability to solve problems and understand complex concepts.
                                     </p>
                                 </div>
                             </a>
@@ -142,10 +142,10 @@
                                     </div>
                                     <div class="space-y-1">
                                         <p class="text-base font-medium leading-6 text-gray-900">
-                                            Developer API
+                                            Improved Grades
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            Grant access keys and tokens for your users.
+                                            With better understanding and more accurate information, students are more likely to improve their grades and achieve their academic goals.
                                         </p>
                                     </div>
                                 </a>
@@ -168,7 +168,7 @@
         Blog
     </a>
 
-    <div @mouseenter="dropdown = true" @mouseleave="dropdown=false" @click.away="dropdown=false" x-data="{ dropdown: false }" class="relative h-full select-none">
+    <!-- <div @mouseenter="dropdown = true" @mouseleave="dropdown=false" @click.away="dropdown=false" x-data="{ dropdown: false }" class="relative h-full select-none">
         <div @click="dropdown = !dropdown" :class="{ 'text-wave-600': dropdown, 'text-gray-500': !dropdown }" class="inline-flex items-center h-full space-x-2 text-base font-medium leading-6 text-gray-500 transition duration-150 ease-in-out cursor-pointer select-none hover:text-wave-600 focus:outline-none focus:text-wave-500">
             <span>More</span>
             <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
@@ -226,7 +226,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="w-1 h-5 mx-10 border-r border-gray-300"></div>
     <a href="{{ route('login') }}" class="text-base font-medium leading-6 text-gray-500 whitespace-no-wrap hover:text-wave-600 focus:outline-none focus:text-gray-900">

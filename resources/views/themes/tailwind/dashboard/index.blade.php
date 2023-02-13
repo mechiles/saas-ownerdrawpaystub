@@ -30,16 +30,18 @@ $user = Auth::user()->id;
 	                </p><p>&nbsp;</p><hr /><br />
 					<?php
 					$questions = DB::table('models')->where('user_id', $user)->get();
- 
+						if(count($questions) == 0)
+						echo '<p class="text-sm leading-5 text-gray-500 mt">You haven\'t asked any questions, yet.</p>';
+						
 						foreach ($questions as $question)
 						{
+							
 							echo '<p class="text-sm leading-5 text-gray-500 mt">Question: ' . $question->question . '<br /><br />';
 							echo "Answer: " . $question->answer . '</p><br /><hr /><br';
 							// var_dump($question->question, $question->answer);
+							
 						}
-						if (!$question->question) {
-							echo '<p class="text-sm leading-5 text-gray-500 mt">You haven\'t asked any questions, yet.</p>';
-						}
+						
 					?>
 				
 
