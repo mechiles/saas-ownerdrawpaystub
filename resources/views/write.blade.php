@@ -42,7 +42,6 @@
 }
 
 .button__text {
-  font: bold 15px "Quicksand", san-serif;
   color: #ffffff;
   transition: all 0.2s;
 }
@@ -117,7 +116,13 @@
                     <!-- <textarea class="min-h-[420px] h-full w-full outline-none" spellcheck="false">{{ $content }}</textarea> -->
                     <div class="chatbot-message-container">{{ $content }}
 					</div>
+                    
                 </div>
+                <span class="inline-flex mt-5 rounded-md shadow-sm">
+	                <a href="{{ url('write') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
+	                   New Question
+	                </a>
+				</span>
             </div>
         </div>
     </body>
