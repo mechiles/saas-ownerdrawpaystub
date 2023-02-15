@@ -21,6 +21,64 @@
         </style> -->
 
         <!-- <script src="https://unpkg.com/marked" defer></script> -->
+        <style>
+            .button {
+  position: relative;
+  padding: 8px 16px;
+  background: #005fe6;
+  width: 150px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:active {
+  background: #94b2d6;
+}
+
+.button:hover {
+  background: #94b2d6;
+}
+
+.button__text {
+  font: bold 15px "Quicksand", san-serif;
+  color: #ffffff;
+  transition: all 0.2s;
+}
+
+.button--loading .button__text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button--loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+            </style>
 
     </head>
     <!-- <body class="antialiased"> -->
@@ -45,7 +103,7 @@
                     <form action="/write/generate" method="post" class="inline-flex gap-2 w-full">
                         @csrf
                         <input required name="question" class="w-full outline-none text-lg leading-5 text-gray-500 font-bold" placeholder="Type your question..." />
-                        <button class="inline-flex bg-blue-500 items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:bg-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 text-white">Get Answer</button>
+                        <button class="button" onclick="this.classList.toggle('button--loading')"><span class="button__text">Get Answer</span></button>
 
                         
                     </form>
