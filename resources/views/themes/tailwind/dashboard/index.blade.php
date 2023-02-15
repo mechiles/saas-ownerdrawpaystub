@@ -29,7 +29,7 @@ $user = Auth::user()->id;
 	                    Below are your previous questions and answers:
 	                </p><p>&nbsp;</p><hr /><br />
 					<?php
-					$questions = DB::table('models')->where('user_id', $user)->get();
+					$questions = DB::table('models')->where('user_id', $user)->orderBy('created_at', 'desc')->get();
 						if(count($questions) == 0)
 						echo '<p class="text-sm leading-5 text-gray-500 mt">You haven\'t asked any questions, yet.</p>';
 						
