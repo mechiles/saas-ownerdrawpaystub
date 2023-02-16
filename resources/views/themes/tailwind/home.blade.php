@@ -11,6 +11,7 @@
                 <div class="flex flex-col items-start w-full mb-16 md:items-center lg:pr-12 lg:items-start lg:w-1/2 lg:mb-0">
 
                     <h2 class="invisible text-sm font-semibold tracking-wide text-gray-700 uppercase transition-none duration-700 ease-out transform translate-y-12 opacity-0 sm:text-base lg:text-sm xl:text-base" data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-y-12": "translate-y-0", "scale-110": "scale-100", "opacity-0": "opacity-100" }'>{{ theme('home_headline') }}</h2>
+                    <img src="https://www.courseqa.com/storage/images/CourseQA-white_1.png" />
                     <h1 class="invisible pb-2 mt-3 text-4xl font-extrabold leading-10 tracking-tight text-transparent transition-none duration-700 ease-out delay-150 transform translate-y-12 opacity-0 bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 scale-10 md:my-5 sm:leading-none lg:text-5xl xl:text-6xl" data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-y-12": "translate-y-0", "scale-110": "scale-100", "opacity-0": "opacity-100" }'>{{ theme('home_subheadline') }}</h1>
                     <p class="invisible max-w-2xl mt-0 text-base text-left text-gray-600 transition-none duration-700 ease-out delay-300 transform translate-y-12 opacity-0 md:text-center lg:text-left sm:mt-2 md:mt-0 sm:text-base lg:text-lg xl:text-xl" data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-y-12": "translate-y-0", "scale-110": "scale-100", "opacity-0": "opacity-100" }'>{{ theme('home_description') }}</p>
                     <div class="invisible w-full mt-5 transition-none duration-700 ease-out transform translate-y-12 opacity-0 delay-450 sm:mt-8 sm:flex sm:justify-center lg:justify-start sm:w-auto" data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'>
@@ -118,7 +119,7 @@
                                     </p>
                                 </div>
 
-                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Anonymous Student <span
+                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Ruby B. <span
                                         class="mt-1 text-sm leading-5 text-gray-500 truncate"></span></h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
@@ -137,7 +138,7 @@
                                     </svg>
                                     <p class="mt-2 text-base text-gray-600">Without a doubt, Course Q&A kept me from failing my algebra class!</p>
                                 </div>
-                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Anonymous Student<span
+                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Steven S.<span
                                         class="mt-1 text-sm leading-5 text-gray-500 truncate"></span></h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
@@ -157,7 +158,7 @@
                                     <p class="mt-2 text-base text-gray-600">This is the best solution available for learning complex systems for computer science!</p>
                                 </div>
 
-                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Anonymous Student<span
+                                <h3 class="mt-3 text-base font-medium leading-5 text-gray-800 truncate sm:pl-12">Paul G.<span
                                         class="mt-1 text-sm leading-5 text-gray-500 truncate"></span></h3>
                                 <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
                             </div>
