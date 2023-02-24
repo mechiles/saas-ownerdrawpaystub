@@ -24,7 +24,7 @@ class BlogController extends Controller
     public function category($slug){
 
         $category = Category::where('slug', '=', $slug)->firstOrFail();
-        $posts = $category->posts()->orderBy('created_at', 'DESC')->paginate(6);
+        $posts = $category->posts()->where('status', '=', 'published')->orderBy('created_at', 'DESC')->paginate(6);
         $categories = Category::all();
 
         $seo = [
