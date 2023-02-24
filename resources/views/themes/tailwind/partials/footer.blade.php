@@ -44,7 +44,7 @@
                     </ul> -->
                 </div>
                 <div class="md:justify-self-end">
-                    <h3 class="font-semibold text-black">About</h3>
+                    <h3 class="font-semibold text-black"><a href="{{ url('p/about') }}" class="relative inline-block text-black group">About</a></h3>
                     <!-- <ul class="mt-6 space-y-4 text-sm">
                         <li>
                             <a href="#_" class="relative inline-block text-black group">
