@@ -65,7 +65,6 @@ class StripeController extends Controller
         if (!$session || !$customer) abort(401);
 
         $subscription = $stripe->subscriptions->retrieve($session->subscription);
-        // echo $subscription;
 
         $user = $this->createUserFromCheckout($customer);
         $this->createStripeSubscription($user, $subscription);
