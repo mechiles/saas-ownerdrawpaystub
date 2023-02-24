@@ -42,9 +42,9 @@
                 </div>
 
                 <div class="relative">
-                        <div data-plan="{{ $plan->plan_id }}" class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition duration-150 ease-in-out @if($plan->default){{ ' bg-gradient-to-r from-wave-600 to-indigo-500 hover:from-wave-500 hover:to-indigo-400' }}@else{{ 'bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 focus:shadow-outline-gray' }}@endif border border-transparent cursor-pointer rounded-b-md checkout focus:outline-none disabled:opacity-25">
+                        <div data-plan="{{ $plan->plan_id }}" class="@subscribed($plan->slug) checkout-update @notsubscribed checkout @endsubscribed  inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition duration-150 ease-in-out @if($plan->default){{ ' bg-gradient-to-r from-wave-600 to-indigo-500 hover:from-wave-500 hover:to-indigo-400' }}@else{{ 'bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 focus:shadow-outline-gray' }}@endif border border-transparent cursor-pointer rounded-b-md focus:outline-none disabled:opacity-25">
                             @subscribed($plan->slug)
-                                You are subscribed to this plan
+                                Your subscribed to this plan
                             @notsubscribed
                                 @subscriber
                                     Switch Plans
@@ -61,7 +61,7 @@
     @endforeach
 </div>
 
-<!-- @if(config('wave.paddle.env') == 'sandbox')
+@if(config('wave.paddle.env') == 'sandbox')
     <div class="px-2 mx-auto mt-12 max-w-7xl">
         <div class="w-full p-10 text-gray-600 bg-blue-50 rounded-xl">
             <div class="flex items-center pb-4">
@@ -82,4 +82,4 @@
             </div>
         </div>
     </div>
-@endif -->
+@endif

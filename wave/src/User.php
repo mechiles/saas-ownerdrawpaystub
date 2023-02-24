@@ -4,51 +4,38 @@ namespace Wave;
 
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Lab404\Impersonate\Models\Impersonate;
-use TCG\Voyager\Models\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use Wave\Announcement;
-use Wave\PaddleSubscription;
 use Wave\Plan;
+use Wave\PaddleSubscription;
+use \Storage;
+use Wave\Announcement;
+use Wave\ApiToken;
+use Laravel\Cashier\Billable as StripeBillable;
 
-class User extends Authenticatable implements JWTSubject
+
+class User extends \TCG\Voyager\Models\User implements JWTSubject
 {
     use Notifiable, Impersonate;
+    use StripeBillable;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'username',
-        'password',
-        'verification_code',
-        'verified',
-        'trial_ends_at',
+        'name', 'email', 'username', 'password', 'verification_code', 'verified', 'trial_ends_at', 'role_id', 'stripe_id',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be hidden for arrays.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'trial_ends_at' => 'datetime',
+        'password', 'remember_token',
     ];
 
     public function keyValues()
@@ -72,18 +59,29 @@ class User extends Authenticatable implements JWTSubject
         return true;
     }
 
-    public function subscribed($plan){
+    public function subscribed($plan = 'default', $price = null) {
 
-        $plan = Plan::where('slug', $plan)->first();
+        if(env('CASHIER_VENDOR') == 'stripe') {
+            $subscription = $this->subscription($plan);
 
-        // if the user is an admin they automatically have access to the default plan
-        if(isset($plan->default) && $plan->default && $this->hasRole('admin')) return true;
+            if (!$subscription || !$subscription->valid()) {
+                return false;
+            }
 
-        if(isset($plan->slug) && $this->hasRole($plan->slug)){
-            return true;
+            return !$price || $subscription->hasPrice($price);
+        } else {
+            $plan = Plan::where('slug', $plan)->first();
+    
+            // if the user is an admin they automatically have access to the default plan
+            if(isset($plan->default) && $plan->default && $this->hasRole('admin')) return true;
+    
+            if(isset($plan->slug) && $this->hasRole($plan->slug)){
+                return true;
+            }
+    
+            return false;
         }
 
-        return false;
     }
 
     public function subscriber(){
@@ -101,7 +99,12 @@ class User extends Authenticatable implements JWTSubject
         return false;
     }
 
-    public function subscription(){
+    public function subscription($name = 'default')
+    {
+        if (env('CASHIER_VENDOR') == 'stripe') {
+            return $this->subscriptions->where('name', $name)->first();
+        }
+
         return $this->hasOne(PaddleSubscription::class);
     }
 
@@ -137,7 +140,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function createApiKey($name){
-        return ApiKey::create(['user_id' => $this->id, 'name' => $name, 'key' => Str::random(60)]);
+        return ApiKey::create(['user_id' => $this->id, 'name' => $name, 'key' => str_random(60)]);
     }
 
     public function apiKeys(){
