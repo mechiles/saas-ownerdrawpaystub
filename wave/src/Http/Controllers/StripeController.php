@@ -65,6 +65,7 @@ class StripeController extends Controller
         if (!$session || !$customer) abort(401);
 
         $subscription = $stripe->subscriptions->retrieve($session->subscription);
+        // echo $subscription;
 
         $user = $this->createUserFromCheckout($customer);
         $this->createStripeSubscription($user, $subscription);
@@ -121,11 +122,11 @@ class StripeController extends Controller
             $counter += 1;
         }
 
-        $trial_days = setting('billing.trial_days', 3);
+        $trial_days = 3;
         $trial_ends_at = null;
         // if trial days is not zero we will set trial_ends_at to ending date
         if (intval($trial_days) > 0) {
-            $trial_ends_at = now()->addDays(setting('billing.trial_days', 0));
+            $trial_ends_at = now()->addDays($trial_days);
         }
 
         $newPassword = Str::random(16);
