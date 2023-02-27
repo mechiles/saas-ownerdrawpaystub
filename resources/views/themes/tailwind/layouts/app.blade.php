@@ -13,8 +13,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="url" content="{{ url('/') }}">
+    <meta name="description" content="{{ setting('site.description') }}">
+
 
     <link rel="icon" href="{{ setting('site.favicon', '/wave/favicon.png') }}" type="image/x-icon">
+
+    <meta property="og:image" content="/storage/{{ setting('site.og_image') }}">
+    <meta property="og:title" content="{{ setting('site.title') }}">
+    <meta property="og:url" content="{{ Request::url() }}">
+    <meta property="og:description" content="{{ setting('site.description') }}">
+    <meta property="og:site_name" content="{{ setting('site.title') }}">
+
+    <meta itemprop="name" content="{{ setting('site.title') }}">
+    <meta itemprop="description" content="{{ setting('site.description') }}">
+    <meta itemprop="image" content="/storage/{{ setting('site.og_image') }}">
 
     {{-- Social Share Open Graph Meta Tags --}}
     @if(isset($seo->title) && isset($seo->description) && isset($seo->image))
@@ -38,9 +50,6 @@
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
 
-    @if(isset($seo->description))
-        <meta name="description" content="{{ $seo->description }}">
-    @endif
 
     <!-- Styles -->
     <link href="{{ asset('themes/' . $theme->folder . '/css/app.css') }}" rel="stylesheet">
