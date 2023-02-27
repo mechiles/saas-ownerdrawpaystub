@@ -23,6 +23,7 @@
     <meta property="og:url" content="{{ Request::url() }}">
     <meta property="og:description" content="{{ setting('site.description') }}">
     <meta property="og:site_name" content="{{ setting('site.title') }}">
+    <meta property="og:type" content="website">
 
     <meta itemprop="name" content="{{ setting('site.title') }}">
     <meta itemprop="description" content="{{ setting('site.description') }}">
