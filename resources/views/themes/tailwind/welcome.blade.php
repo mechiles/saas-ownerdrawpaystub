@@ -10,7 +10,14 @@
                 @if(Request::get('complete')){{ 'Please finish completing your profile information below.' }} @endif</p>
             <!-- <p class="py-0 my-0">This file can be modified inside of your <code class="px-2 py-1 font-mono text-base font-medium text-gray-600 bg-indigo-100 rounded-md">resources/views/{{ theme_folder('/welcome.blade.php') }}</code> file ✌️</p> -->
         </div>
-
+       @if ((Auth::user()->name))  
+            <div class="items-center justify-center w-full mt-12 text-center">
+                <a href="{{ route('wave.dashboard') }}" class="inline-block w-auto px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-wave-600 hover:bg-wave-500 focus:outline-none focus:border-wave-700 focus:shadow-outline-wave active:bg-wave-700">
+                    Go to my Dashboard
+                </a>
+            </div>
+       
+        @else
         @if(Request::get('complete') || session('complete'))
             <div class="flex flex-col justify-center py-10 sm:py-5 sm:px-6 lg:px-8">
                 <div class="mt-8 text-left sm:mx-auto sm:w-full sm:max-w-md">
@@ -86,15 +93,9 @@
                 </div>
             </div>
 
-
-        @else
-            <div class="items-center justify-center w-full mt-12 text-center">
-                <a href="{{ route('wave.dashboard') }}" class="inline-block w-auto px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-wave-600 hover:bg-wave-500 focus:outline-none focus:border-wave-700 focus:shadow-outline-wave active:bg-wave-700">
-                    Go to my Dashboard
-                </a>
-            </div>
         @endif
 
 	</div>
+    @endif
 
 @endsection

@@ -101,7 +101,7 @@
                 <div class="w-full rounded-md bg-white border-2 border-gray-600 p-4 min-h-[60px] h-full text-gray-600">
                     <form action="/write/generate" method="post" class="inline-flex gap-2 w-full">
                         @csrf
-                        <input required name="question" class="w-full outline-none text-lg leading-5 text-gray-500 font-bold" placeholder="Type your question..." />
+                        <input required name="question" id="question" class="w-full outline-none text-lg leading-5 text-gray-500 font-bold" placeholder="Type your question..." />
                         <button class="button" onclick="this.classList.toggle('button--loading')"><span class="button__text">Get Answer</span></button>
 
                         
