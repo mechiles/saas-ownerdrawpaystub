@@ -24,17 +24,36 @@ public function index(Request $input)
 
     // $client = OpenAI::client(config('app.openai_api_key'));
     
-    $result = $client->completions()->create([
-        "model" => "text-davinci-003",
+    $result = $client->chat()->create([
+        "model" => "gpt-3.5-turbo",
         "temperature" => 0.7,
         "top_p" => 1,
         "frequency_penalty" => 0,
         "presence_penalty" => 0,
         'max_tokens' => 600,
-        'prompt' => sprintf('Write an answer about: %s', $question),
+        // 'prompt' => sprintf('Write an answer about: %s', $question),
+        'messages' => [
+            ['role' => 'user', 'content' => sprintf('Write an answer about: %s', $question)],
+        ],
     ]);
 
-    $content = trim($result['choices'][0]['text']);
+//     $result = $client->chat()->create([
+//     'model' => 'gpt-3.5-turbo',
+//     'messages' => [
+//         ['role' => 'user', 'content' => $question],
+//     ],
+// ]);
+
+//  $clean = str_replace("data: ", "", $data);
+//         $arr = json_decode($clean, true);
+//         if ($data != "data: [DONE]\n\n" and isset($arr["choices"][0]["delta"]["content"])) {
+//             $txt .= $arr["choices"][0]["delta"]["content"];
+//         }
+
+
+    $content = trim($result["choices"][0]["message"]["content"]);
+    // $content = trim($result);
+    // var_dump($result);
 
 
     return view('write', compact('question', 'content'));
