@@ -17,8 +17,7 @@ class OpenAI {
             CURLOPT_POSTFIELDS => '{
             "model": "gpt-3.5-turbo",
             "prompt": "$prompt",
-            "temperature": 0.7,
-            "max_tokens": 256,
+            "temperature": 0.2,
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0

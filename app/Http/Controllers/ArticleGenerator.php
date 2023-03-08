@@ -26,14 +26,14 @@ public function index(Request $input)
     
     $result = $client->chat()->create([
         "model" => "gpt-3.5-turbo",
-        "temperature" => 0.7,
-        "top_p" => 1,
+        "temperature" => 0.5,
+        // "top_p" => 1,
         "frequency_penalty" => 0,
         "presence_penalty" => 0,
-        'max_tokens' => 600,
+        // 'max_tokens' => 600,
         // 'prompt' => sprintf('Write an answer about: %s', $question),
         'messages' => [
-            ['role' => 'user', 'content' => sprintf('Write an answer about: %s', $question)],
+            ['role' => 'user', 'content' => $question],
         ],
     ]);
 
