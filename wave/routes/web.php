@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Wave\Http\Controllers\GPT3Controller;
+use App\Http\Controllers\PaystubController;
 
 Route::impersonate();
 
@@ -41,19 +42,23 @@ Route::group(['middleware' => 'wave'], function () {
 		return view('dashboard', compact('question', 'content'));
 	})->name('wave.dashboard');
 
-// Route::get('dashboard', function () {
-//     $question = '';
-//     $content = '';
-//     return view('write', compact('question', 'content'));
-// })->name('wave.dashboard');
+	Route::get('/paystubs/create', [PaystubController::class, 'create'])->name('paystubs.create');
+	Route::post('/paystubs', [PaystubController::class, 'store'])->name('paystubs.store');
+	Route::get('/paystubs/{stubno}', [PaystubController::class, 'show'])->name('paystubs.show');
 
-Route::get('write', function () {
-    $question = '';
-    $content = '';
-    return view('write', compact('question', 'content'));
-});
+	// Route::get('dashboard', function () {
+	//     $question = '';
+	//     $content = '';
+	//     return view('write', compact('question', 'content'));
+	// })->name('wave.dashboard');
 
-Route::any('write/generate', 'App\Http\Controllers\ArticleGenerator@index');
+	Route::get('write', function () {
+		$question = '';
+		$content = '';
+		return view('write', compact('question', 'content'));
+	});
+
+	Route::any('write/generate', 'App\Http\Controllers\ArticleGenerator@index');
 
 });
 

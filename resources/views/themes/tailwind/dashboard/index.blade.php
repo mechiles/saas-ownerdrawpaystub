@@ -56,20 +56,20 @@ $user = Auth::user()->id;
 	        </div>
 	        <div class="relative p-5">
 				
-				<?php $openapi = env('OPEN_API_KEY'); ?>
+				<?php // $openapi = env('OPEN_API_KEY'); ?>
 
 				<div class="container">
 				
 						<?php
-					$questions = DB::table('models')->where('user_id', $user)->orderBy('created_at', 'desc')->get();
-						if(count($questions) == 0)
-						echo '<p class="text-sm leading-5 text-gray-500 mt">You haven\'t asked any questions, yet.</p>';
+					$paystubs = DB::table('paystubs')->where('user_id', $user)->orderBy('created_at', 'desc')->get();
+						if(count($paystubs) == 0)
+						echo '<p class="text-sm leading-5 text-gray-500 mt">You haven\'t created any paystubs, yet.</p>';
 						
-						foreach ($questions as $question)
+						foreach ($paystubs as $paystub)
 						{
 							
-							echo '<p class="text-sm leading-5 text-gray-500 mt">Question: ' . $question->question . '<br /><br />';
-							echo "Answer: " . $question->answer . '</p><br /><hr /><br';
+							echo '<p class="text-sm leading-5 text-gray-500 mt">Paystub: ' . $paystub->stubno . ' created at ' . $paystub->created_at . '<br /><br />';
+							// echo "Answer: " . $question->answer . '</p><br /><hr /><br';
 							// var_dump($question->question, $question->answer);
 							
 						}
