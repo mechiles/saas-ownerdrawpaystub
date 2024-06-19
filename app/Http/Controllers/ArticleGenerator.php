@@ -17,8 +17,7 @@ public function index(Request $input)
     }
 
     $question = $input->question;
-    // $openapi = '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'; 
-    $openapi = 'sk-proj-M2E4SirrUgFAZI4rqLFRT3BlbkFJVWYVy953iZrygzGPzIs8';
+
     $client = OpenAI::client($openapi);
 
     // exit();
