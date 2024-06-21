@@ -7,7 +7,7 @@
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold mb-4">Owner Draw Pay Stub</h1>
 
-    <form action="{{ route('paystubs.store') }}" method="POST" class="space-y-8" onsubmit="return updateHiddenNetPay()">
+    <form action="{{ route('paystubs.preview') }}" method="POST" class="space-y-8" onsubmit="return updateHiddenNetPay()">
         @csrf
 
         <!-- Step 1: Company Information -->

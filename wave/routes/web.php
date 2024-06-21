@@ -42,9 +42,10 @@ Route::group(['middleware' => 'wave'], function () {
 		return view('dashboard', compact('question', 'content'));
 	})->name('wave.dashboard');
 
-	Route::get('/paystubs/create', [PaystubController::class, 'create'])->name('paystubs.create');
-	Route::post('/paystubs', [PaystubController::class, 'store'])->name('paystubs.store');
-	Route::get('/paystubs/{stubno}', [PaystubController::class, 'show'])->name('paystubs.show');
+	Route::get('paystubs/create', [PaystubController::class, 'create'])->name('paystubs.create');
+	Route::post('paystubs/preview', [PaystubController::class, 'preview'])->name('paystubs.preview');
+	Route::post('paystubs/store', [PaystubController::class, 'store'])->name('paystubs.store');
+	Route::get('paystubs/{stubno}', [PaystubController::class, 'show'])->name('paystubs.show');
 
 	// Route::get('dashboard', function () {
 	//     $question = '';

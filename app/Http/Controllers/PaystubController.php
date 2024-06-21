@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Paystub;
@@ -8,12 +9,13 @@ use Illuminate\Http\Request;
 
 class PaystubController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
-        return view('themes.tailwind.paystubs.create');
+        $formData = $request->session()->get('form_data', []);
+        return view('themes.tailwind.paystubs.create', compact('formData'));
     }
 
-    public function store(Request $request)
+    public function preview(Request $request)
     {
         // Validate the request data
         $validated = $request->validate([
@@ -48,6 +50,32 @@ class PaystubController extends Controller
             'ownerdrawamount.*' => 'nullable|numeric',
             'netpayamount' => 'required|numeric',
         ]);
+    
+        // Calculate the total previous owner draws
+        $totalPrevOwnerDraws = 0;
+        if (!empty($validated['prevpayday']) && !empty($validated['ownerdrawamount'])) {
+            foreach ($validated['ownerdrawamount'] as $amount) {
+                $totalPrevOwnerDraws += floatval($amount);
+            }
+        }
+    
+        // Add hidden inputs to the preview form
+        $request->session()->flash('form_data', $validated);
+    
+        return view('themes.tailwind.paystubs.preview', [
+            'data' => $validated,
+            'totalPrevOwnerDraws' => $totalPrevOwnerDraws,
+        ]);
+    }
+    
+
+    public function store(Request $request)
+    {
+        $validated = $request->session()->get('form_data');
+
+        if (!$validated) {
+            return redirect()->route('paystubs.create');
+        }
 
         // Add the user_id to the validated data
         $validated['user_id'] = Auth::id();
@@ -68,17 +96,7 @@ class PaystubController extends Controller
             }
         }
 
-        // Retrieve previous owner draws
-        $prevOwnerDraws = PrevOwnerDraw::where('stubno', $paystub->stubno)->get()->map(function($draw) {
-            return [
-                'date' => new \DateTime($draw->prevpayday),
-                'amount' => $draw->ownerdrawamount
-            ];
-        })->sortBy('date')->values();
-
-        $totalPrevOwnerDraws = $prevOwnerDraws->sum('amount');
-
-        return view('themes.tailwind.paystubs.show', compact('paystub', 'prevOwnerDraws', 'totalPrevOwnerDraws'));
+        return redirect()->route('paystubs.show', ['stubno' => $paystub->stubno]);
     }
 
     public function show($stubno)
@@ -91,6 +109,8 @@ class PaystubController extends Controller
             ];
         })->sortBy('date')->values()->all();
 
-        return view('themes.tailwind.paystubs.show', compact('paystub', 'prevOwnerDraws'));
+        $totalPrevOwnerDraws = collect($prevOwnerDraws)->sum('amount');
+
+        return view('themes.tailwind.paystubs.show', compact('paystub', 'prevOwnerDraws', 'totalPrevOwnerDraws'));
     }
 }

@@ -27,14 +27,11 @@ $user = Auth::user()->id;
 
 				<p class="text-lg leading-5 text-gray-500 mt">
 	                    <h3 class="text-lg font-medium leading-6 text-gray-700">
-						Let's get you some answers!
+						Get started below!
 	                </h3>
-	                <p class="text-sm leading-5 text-gray-500 mt">
-						Just click below to get started.</p>
 				<span class="inline-flex mt-5 rounded-md shadow-sm">
-	                <a href="{{ url('write') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
-	                   Click Here For Answers
-	                </a>
+				<a href="{{ url('paystubs/create') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
+				Click Here To Create a New Paystub</a>
 				</span>
 				
 			</div>
@@ -62,26 +59,22 @@ $user = Auth::user()->id;
 				
 						<?php
 					$paystubs = DB::table('paystubs')->where('user_id', $user)->orderBy('created_at', 'desc')->get();
-						if(count($paystubs) == 0)
+					if(count($paystubs) == 0) {
 						echo '<p class="text-sm leading-5 text-gray-500 mt">You haven\'t created any paystubs, yet.</p>';
-						
-						foreach ($paystubs as $paystub)
-						{
-							
-							echo '<p class="text-sm leading-5 text-gray-500 mt">Paystub: ' . $paystub->stubno . ' created at ' . $paystub->created_at . '<br /><br />';
-							// echo "Answer: " . $question->answer . '</p><br /><hr /><br';
-							// var_dump($question->question, $question->answer);
-							
-						}
-						
+					} else {
+						?>
+							@foreach ($paystubs as $paystub)
+								<p class="text-sm leading-5 text-gray-500 mt"><b>Paystub:</b> {{ $paystub->stubno }} created at {{ $paystub->created_at }} <a href="{{ url('paystubs/' . $paystub->stubno) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">View Paystub</a><br /><br /></p>
+							@endforeach
+						<?php
+					}
 					?>
 					<div class="chatbot-container">
 						<div class="chatbot-header">
-						<h3 class="text-base leading-loose text-gray-500">Need to start a new question?</h2>
 						</div>
 						<span class="inline-flex mt-5 rounded-md shadow-sm">
-	                <a href="{{ url('write') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
-	                   Click Here To Get Answers
+	                <a href="{{ url('paystubs/create') }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">
+	                   Click Here To Create a New Paystub
 	                </a>
 				</span>
 				</div>
