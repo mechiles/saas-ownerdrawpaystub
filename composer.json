@@ -12,6 +12,7 @@
         "ext-exif": "*",
         "ext-gd": "*",
         "ext-redis": "*",
+        "barryvdh/laravel-dompdf": "^2.2",
         "devdojo/app": "0.11.0",
         "devdojo/themes": "0.0.7",
         "guzzlehttp/guzzle": "^7.2",

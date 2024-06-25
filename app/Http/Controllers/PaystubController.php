@@ -6,6 +6,7 @@ use App\Models\Paystub;
 use App\Models\PrevOwnerDraw;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PaystubController extends Controller
 {
@@ -99,9 +100,9 @@ class PaystubController extends Controller
         return redirect()->route('paystubs.show', ['stubno' => $paystub->stubno]);
     }
 
-    public function show($stubno)
+    public function show($id)
     {
-        $paystub = Paystub::with('prevOwnerDraws')->where('stubno', $stubno)->firstOrFail();
+        $paystub = Paystub::with('prevOwnerDraws')->where('id', $id)->firstOrFail();
         $prevOwnerDraws = $paystub->prevOwnerDraws->map(function($draw) {
             return [
                 'date' => new \DateTime($draw->prevpayday),
@@ -112,5 +113,21 @@ class PaystubController extends Controller
         $totalPrevOwnerDraws = collect($prevOwnerDraws)->sum('amount');
 
         return view('themes.tailwind.paystubs.show', compact('paystub', 'prevOwnerDraws', 'totalPrevOwnerDraws'));
+    }
+
+    public function print($id)
+    {
+        $paystub = Paystub::with('prevOwnerDraws')->where('id', $id)->firstOrFail();
+        $prevOwnerDraws = $paystub->prevOwnerDraws->map(function($draw) {
+            return [
+                'date' => new \DateTime($draw->prevpayday),
+                'amount' => $draw->ownerdrawamount
+            ];
+        })->sortBy('date')->values()->all();
+
+        $totalPrevOwnerDraws = collect($prevOwnerDraws)->sum('amount');
+
+        $pdf = Pdf::loadView('themes.tailwind.paystubs.print', compact('paystub', 'prevOwnerDraws', 'totalPrevOwnerDraws'));
+        return $pdf->download('paystub.pdf');
     }
 }
