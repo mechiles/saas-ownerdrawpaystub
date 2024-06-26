@@ -69,11 +69,13 @@
             <tbody>
                 @if (!empty($data['prevpayday']) && !empty($data['ownerdrawamount']))
                     @foreach ($data['prevpayday'] as $index => $prevpayday)
-                        <tr>
-                            <td class="border px-4 py-2 w-1/3">Owner's Draw</td>
-                            <td class="border px-4 py-2 w-1/3">{{ $prevpayday }}</td>
-                            <td class="border px-4 py-2 w-1/3">${{ number_format($data['ownerdrawamount'][$index], 2) }}</td>
-                        </tr>
+                        @if (!empty($prevpayday) && isset($data['ownerdrawamount'][$index]) && $data['ownerdrawamount'][$index] > 0)
+                            <tr>
+                                <td class="border px-4 py-2 w-1/3">Owner's Draw</td>
+                                <td class="border px-4 py-2 w-1/3">{{ $prevpayday }}</td>
+                                <td class="border px-4 py-2 w-1/3">${{ number_format($data['ownerdrawamount'][$index], 2) }}</td>
+                            </tr>
+                        @endif
                     @endforeach
                 @endif
                 <tr>

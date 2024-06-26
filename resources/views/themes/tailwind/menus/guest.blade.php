@@ -25,11 +25,11 @@
                                 <div class="relative flex flex-col items-start justify-center w-full h-full px-16 py-8">
 
                                     <img src="https://www.courseqa.com/storage/images/CourseQA-white_1.png" class="z-20 w-auto rounded-md">
-                                    <h3 class="z-30 mt-1 mt-3 text-lg font-thin text-wave-200">The software for students, by students.</h3>
+                                    <h3 class="z-30 mt-1 mt-3 text-lg font-thin text-wave-200">The software for business owners.</h3>
 
                                     <span class="relative z-20 inline-flex mt-5 rounded-md shadow-sm">
                                         <a href="{{ url('pricing') }}" class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border border-transparent rounded-md text-wave-500 hover:bg-gray-100 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-100">
-                                            Try Course Q&A Today
+                                            Get started with Lifetime Access today.
                                             <span class="absolute top-0 right-0 px-3 py-1 -mt-4 -mr-8 text-xs text-white rounded-full bg-wave-400">Free Trial</span>
                                         </a>
                                     </span>

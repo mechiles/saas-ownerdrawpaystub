@@ -17,25 +17,18 @@
             padding: 0px;
         }
         .header h1 {
-            text-align: left;
-            margin-bottom: 20px;
-            font-size: 16px;
+            text-align: center;
+            /* margin-bottom: 10px; */
+            font-size: 24px;
         }
         .main-table {
             width: 100%;
-            margin-bottom: 20px;
+            /* margin-bottom: 10px; */
         }
         .main-table th, .main-table td {
             padding: 5px;
             text-align: left;
             vertical-align: top;
-        }
-        .summary h2 {
-            font-size: 12px;
-            margin-bottom: 10px;
-        }
-        .summary p {
-            margin: 5px 0;
         }
         .table {
             width: 100%;
@@ -55,23 +48,27 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Owner Draw Earning Statement</h1>
-        </div>
         <table class="main-table" style="width: 100%; table-layout: fixed;">
             <tr>
                 <!-- Company Information -->
-                <td style="width: 33%;">
-                    <h3>Company Information</h3>
+                <td style="width: 50%;">
+                    <h2>Company Information</h2>
                     <p><strong>{{ $paystub['companyname'] }}</strong><br />
                     {{ $paystub['companystreet'] }}<br />
                     {{ $paystub['companycity'] }}, {{ $paystub['companystate'] }} {{ $paystub['companyzip'] }} {{ $paystub['companycountry'] }}<br />
                     Phone: {{ $paystub['companyphone'] }}<br />
                     EIN: {{ $paystub['einno'] }}</p>
                 </td>
+                <td style="width: 50%;">
+                    <div class="header">
+                        <h1>Owner Draw Earning Statement</h1>
+                    </div>
+                </td>
+            </tr>
+            <tr>
                 <!-- Employee Information -->
-                <td style="width: 33%;">
-                    <h3>Employee Information</h3>
+                <td style="width: 50%;">
+                    <h2>Employee Information</h2>
                     <p><strong>{{ $paystub['firstname'] }} {{ $paystub['middlename'] }} {{ $paystub['lastname'] }}</strong><br />
                     {{ $paystub['street'] }}<br />
                     {{ $paystub['city'] }}, {{ $paystub['state'] }} {{ $paystub['zip'] }} {{ $paystub['country'] }}<br />
@@ -80,19 +77,16 @@
                     Email: {{ $paystub['email'] }}</p>
                 </td>
                 <!-- Pay Information -->
-                <td style="width: 33%;">
-                    <h3>Pay Information</h3>
-                    <p><b>Pay Period:</b><br />
+                <td style="width: 50%;">
+                    <h2>Pay Information</h2>
+                    <p><b>Pay Period: </b>
                     {{ $paystub['paystartday'] }}
                     - {{ $paystub['payendday'] }}<br />
-                    <!-- <div class="summary"> -->
-                        <h3>Summary</h3>
-                        Pay Stub No.: {{ $paystub['stubno'] }}<br />
-                        Net Pay: ${{ number_format($paystub['netpayamount'], 2) }}<br />
-                        YTD Net Pay: ${{ number_format($paystub['netpayamount'] + $totalPrevOwnerDraws, 2) }}<br />
-                        Pay Date: {{ $paystub['payday'] }}
+                    Pay Stub No.: {{ $paystub['stubno'] }}<br />
+                    Net Pay: ${{ number_format($paystub['netpayamount'], 2) }}<br />
+                    YTD Net Pay: ${{ number_format($paystub['netpayamount'] + $totalPrevOwnerDraws, 2) }}<br />
+                    Pay Date: {{ $paystub['payday'] }}
                     </p>
-                    <!-- </div> -->
                 </td>
             </tr>
         </table>

@@ -97,7 +97,7 @@ class PaystubController extends Controller
             }
         }
 
-        return redirect()->route('paystubs.show', ['stubno' => $paystub->stubno]);
+        return redirect()->route('paystubs.show', ['id' => $paystub->id]);
     }
 
     public function show($id)

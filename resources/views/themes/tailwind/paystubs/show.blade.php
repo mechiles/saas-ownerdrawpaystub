@@ -84,6 +84,8 @@
             </tr>
         </tbody>
     </table>
-    
+    <div class="text-center">
+        <p><br /><a href="{{ route('paystubs.print', ['id' => $paystub->id]) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out bg-white border border-blue-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50">Print Paystub</a></p>
+    </div>
 </div>
 @endsection

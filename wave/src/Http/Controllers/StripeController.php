@@ -29,9 +29,10 @@ class StripeController extends Controller
                 ],
             ],
             'mode' => 'subscription',
-            'subscription_data' => [
-                'trial_period_days' => 3,
-            ],
+            // 'mode' => 'payment', // use for one-time payments
+            // 'subscription_data' => [
+            //     'trial_period_days' => 3,
+            // ],
             'tax_id_collection' => [
                 'enabled' => env('CASHIER_STRIPE_CALCULATE_TAXES')
             ],
