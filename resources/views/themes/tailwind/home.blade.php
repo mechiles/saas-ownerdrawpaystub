@@ -62,8 +62,8 @@
         </div>
 
         <div class="relative z-20 flex flex-col items-start justify-start px-8 mx-auto sm:items-center max-w-7xl xl:px-5" id="features">
-            <h2 class="text-4xl font-medium leading-9 text-white">Awesome Features</h2>
-            <p class="mt-4 leading-6 sm:text-center text-wave-200">Course Q&A has an artificial intelligence system designed to help you find fast and accurate answers to your coursework.<br class="hidden md:block"> Here are a few awesome features you're going to love!</p>
+            <h2 class="text-4xl font-medium leading-9 text-white">Powerful Features</h2>
+            <p class="mt-4 leading-6 sm:text-center text-wave-200">Owner Draw Pay Stub makes it easy to generate earning statements and have continuous access to all of your records.<br class="hidden md:block"> Here are a few awesome features you're going to love!</p>
 
             <div class="grid mt-16 gap-y-10 sm:grid-cols-2 sm:gap-x-8 md:gap-x-12 lg:grid-cols-3 xl:grid-cols-4 lg:gap-20">
                 @foreach(config('features') as $feature)
@@ -92,7 +92,7 @@
     </svg>
 
     <!-- BEGINNING OF TESTIMONIALS SECTION -->
-    <div id="testimonials">
+    <!-- <div id="testimonials">
         <div class="relative flex items-center justify-center pt-32 pb-12 bg-gray-100 md:pb-32 lg:pb-64 min-w-screen">
             <div class="max-w-6xl px-10 pb-20 mx-auto bg-gray-100">
                 <div class="flex flex-col items-center lg:flex-row">
@@ -102,9 +102,9 @@
                             class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:leading-none lg:text-5xl xl:text-6xl">
                             Testimonials</h2>
                         <p class="pr-5 my-6 text-lg text-gray-600 md:text-center lg:text-left">See some of the great stories.</p>
-                        <!-- <a href="#_"
+                        <a href="#_"
                             class="flex items-center justify-center px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md shadow bg-wave-600 hover:bg-wave-500 focus:outline-none focus:border-wave-700 focus:shadow-outline-wave md:py-4 md:text-lg md:px-10">View
-                            Case Studies</a> -->
+                            Case Studies</a>
                     </div>
                     <div class="w-full sm:w-4/5 lg:w-1/2">
                         <blockquote class="flex flex-row-reverse items-center justify-between w-full col-span-1 p-6 bg-white rounded-lg shadow sm:flex-row">
@@ -185,7 +185,7 @@
             </svg>
 
         </div>
-    </div>
+    </div> -->
     <!-- END OF TESTIMONIALS SECTION -->
 
     <!-- BEGINNING OF PRICING SECTION -->
@@ -194,7 +194,7 @@
         <div class="relative z-20 px-8 pb-8 mx-auto max-w-7xl xl:px-5">
             <div class="w-full text-left sm:text-center">
                 <h2 class="pt-12 text-4xl font-extrabold text-gray-900 lg:text-5xl">Low Cost, High Impact</h2>
-                <p class="w-full my-1 text-base text-left text-gray-900 opacity-75 sm:my-2 sm:text-center sm:text-xl">For less than a cup of coffee, Course Q&A helps you with your coursework.</p>
+                <p class="w-full my-1 text-base text-left text-gray-900 opacity-75 sm:my-2 sm:text-center sm:text-xl">Professional earnings statements for business owners, all at an unbeatable price.</p>
             </div>
 
             @include('theme::partials.plans')

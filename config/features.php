@@ -2,48 +2,48 @@
 
 return [
     (object)[
-        'title' => 'Access to accurate information',
-        'description' => 'The service provides accurate information and answers to questions, ensuring that students have access to the right information they need to succeed in their studies.',
+        'title' => 'Data Privacy Ensured',
+        'description' => 'Your financial data is secure with us. We use advanced encryption and security measures to protect your sensitive information, ensuring that your data remains confidential and safe from unauthorized access.',
         'image' => '/themes/tailwind/images/authentication.png'
     ],
+    // (object)[
+    //     'title' => 'Effortless Creation',
+    //     'description' => 'Creating professional pay stubs is quick and easy with our intuitive interface. Generate accurate pay stubs in minutes with just a few clicks, saving you time and reducing errors.',
+    //     'image' => '/themes/tailwind/images/profile.png'
+    // ],
     (object)[
-        'title' => 'Time-saving',
-        'description' => 'Students can save time by quickly getting answers to their questions without having to search through multiple sources.',
-        'image' => '/themes/tailwind/images/profile.png'
-    ],
-    (object)[
-        'title' => 'Improved Understanding',
-        'description' => 'The service provides in-depth answers that help students understand difficult concepts more easily, which can lead to better grades.',
+        'title' => 'Accurate and Reliable',
+        'description' => 'Our system automatically calculates net pay of current earnings, and the full YTD of neet earnings, ensuring that your pay stubs are always accurate. Eliminate manual calculations and reduce the risk of errors, giving you peace of mind.',
         'image' => '/themes/tailwind/images/impersonation.png'
     ],
+    // (object)[
+    //     'title' => 'Accurate and Reliable',
+    //     'description' => 'Students can access the service from anywhere at any time, making it easy for them to get answers to their questions whenever they need them.',
+    //     'image' => '/themes/tailwind/images/subscriptions.png'
+    // ],
     (object)[
-        'title' => 'Convenient',
-        'description' => 'Students can access the service from anywhere at any time, making it easy for them to get answers to their questions whenever they need them.',
-        'image' => '/themes/tailwind/images/subscriptions.png'
-    ],
-    (object)[
-        'title' => 'Affordable',
-        'description' => 'With a monthly fee of $5 or an annual fee of $50, the service is affordable for most students, making it accessible to everyone.',
+        'title' => 'Effortless Creation',
+        'description' => 'Creating professional pay stubs is quick and easy with our intuitive interface. Generate accurate pay stubs in minutes with just a few clicks, saving you time and reducing errors.',
         'image' => '/themes/tailwind/images/plans.png'
     ],
+    // (object)[
+    //     'title' => 'Data Privacy Ensured',
+    //     'description' => 'Your financial data is secure with us. We use advanced encryption and security measures to protect your sensitive information, ensuring that your data remains confidential and safe from unauthorized access.',
+    //     'image' => '/themes/tailwind/images/roles.png'
+    // ],
+    // (object)[
+    //     'title' => 'Increased Confidence',
+    //     'description' => 'By getting accurate answers to their questions, students can feel more confident in their ability to solve problems and understand complex concepts.',
+    //     'image' => '/themes/tailwind/images/notifications.png'
+    // ],
+    // (object)[
+    //     'title' => 'Reduced Stress',
+    //     'description' => 'With the service, students can get answers to their questions quickly, reducing stress and helping them to focus on their studies.',
+    //     'image' => '/themes/tailwind/images/announcements.png'
+    // ],
     (object)[
-        'title' => 'Personalized',
-        'description' => 'The service uses context to provide personalized answers to questions, ensuring that students receive answers tailored to their needs.',
-        'image' => '/themes/tailwind/images/roles.png'
-    ],
-    (object)[
-        'title' => 'Increased Confidence',
-        'description' => 'By getting accurate answers to their questions, students can feel more confident in their ability to solve problems and understand complex concepts.',
-        'image' => '/themes/tailwind/images/notifications.png'
-    ],
-    (object)[
-        'title' => 'Reduced Stress',
-        'description' => 'With the service, students can get answers to their questions quickly, reducing stress and helping them to focus on their studies.',
-        'image' => '/themes/tailwind/images/announcements.png'
-    ],
-    (object)[
-        'title' => 'Improved Grades',
-        'description' => 'With better understanding and more accurate information, students are more likely to improve their grades and achieve their academic goals.',
+        'title' => 'All Your Records in One Place',
+        'description' => 'Keep track of all your pay stubs and earnings history in one convenient location. Our system ensures that you have access to your financial records anytime, anywhere, making it easy to manage your business finances.',
         'image' => '/themes/tailwind/images/blog.png'
     ]
     // ,
