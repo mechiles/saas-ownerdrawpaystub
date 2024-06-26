@@ -7,13 +7,12 @@
                 <div class="px-10 pt-7">
                     <div class="absolute right-0 inline-block mr-6 transform">
                         <h2 class="relative z-20 w-full h-full px-2 py-1 text-xs font-bold leading-tight tracking-wide text-center uppercase bg-white border-2 @if($plan->default){{ 'border-wave-400 text-wave-500' }}@else{{ 'border-gray-900 text-gray-800' }}@endif rounded">{{ $plan->name }}</h2>
-
                     </div>
                 </div>
 
-                <div class="px-10 mt-5">
-                    <span class="font-mono text-5xl font-bold">${{ $plan->price }}</span>
-                    <span class="text-lg font-bold text-gray-500">per month</span>
+                <div class="px-10 mt-5 text-center">
+                    <br /><span class="font-mono text-5xl font-bold">${{ $plan->price }}</span>
+                    <!-- <span class="text-lg font-bold text-gray-500">per year</span> -->
                 </div>
 
                 <div class="px-10 mt-6 pb-9">

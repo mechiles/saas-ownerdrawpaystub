@@ -29,10 +29,10 @@ class StripeController extends Controller
                 ],
             ],
             'mode' => 'subscription',
-            // 'mode' => 'payment', // use for one-time payments
-            // 'subscription_data' => [
-            //     'trial_period_days' => 3,
-            // ],
+            'mode' => 'payment', // use for one-time payments
+            'subscription_data' => [
+                'trial_period_days' => 0,
+            ],
             'tax_id_collection' => [
                 'enabled' => env('CASHIER_STRIPE_CALCULATE_TAXES')
             ],
@@ -122,7 +122,7 @@ class StripeController extends Controller
             $counter += 1;
         }
 
-        $trial_days = 3;
+        $trial_days = 0; // set Stripe subscription trial days
         $trial_ends_at = null;
         // if trial days is not zero we will set trial_ends_at to ending date
         if (intval($trial_days) > 0) {
@@ -143,9 +143,9 @@ class StripeController extends Controller
             'trial_ends_at' => $trial_ends_at
         ]);
 
-        // if($user) {
-        //     $user->notify(new NewUserPassword($user, $newPassword));
-        // }
+        if($user) {
+            $user->notify(new NewUserPassword($user, $newPassword));
+        }
 
         return $user;
     }
