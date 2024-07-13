@@ -143,9 +143,9 @@ class StripeController extends Controller
             'trial_ends_at' => $trial_ends_at
         ]);
 
-        if($user) {
-            $user->notify(new NewUserPassword($user, $newPassword));
-        }
+        // if($user) {
+        //     $user->notify(new NewUserPassword($user, $newPassword));
+        // }
 
         return $user;
     }

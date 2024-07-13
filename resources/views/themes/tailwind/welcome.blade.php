@@ -2,25 +2,17 @@
 
 @section('content')
 
-	<div class="py-20 mx-auto text-center max-w-7xl">
-        <div class="w-full space-y-2">
-            <h1 class="mb-5 text-5xl font-medium">Welcome Aboard!</h1>
-            <p class="py-0 my-0">Thanks for subscribing and welcome aboard.
-
+	<div class="py-10 mx-auto text-center max-w-7xl">
+        <div class="w-full">
+            <h1 class="p-3 text-2xl font-bold mx-auto">Thank you for subscribing and welcome to Owner Draw Pay Stub!</h1>
+            <p class="">Finish creating your profile.
                 @if(Request::get('complete')){{ 'Please finish completing your profile information below.' }} @endif</p>
             <!-- <p class="py-0 my-0">This file can be modified inside of your <code class="px-2 py-1 font-mono text-base font-medium text-gray-600 bg-indigo-100 rounded-md">resources/views/{{ theme_folder('/welcome.blade.php') }}</code> file ✌️</p> -->
         </div>
-       @if ((Auth::user()->name))  
-            <div class="items-center justify-center w-full mt-12 text-center">
-                <a href="{{ route('wave.dashboard') }}" class="inline-block w-auto px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-wave-600 hover:bg-wave-500 focus:outline-none focus:border-wave-700 focus:shadow-outline-wave active:bg-wave-700">
-                    Go to my Dashboard
-                </a>
-            </div>
-       
-        @else
+
         @if(Request::get('complete') || session('complete'))
             <div class="flex flex-col justify-center py-10 sm:py-5 sm:px-6 lg:px-8">
-                <div class="mt-8 text-left sm:mx-auto sm:w-full sm:max-w-md">
+                <div class="mt-2 text-left sm:mx-auto sm:w-full sm:max-w-md">
                     <div class="px-4 py-8 bg-white border shadow border-gray-50 sm:rounded-lg sm:px-10">
                         <form role="form" method="POST" action="{{ route('wave.register-complete') }}">
                             @csrf
@@ -31,7 +23,7 @@
                                     Profile
                                 </h3>
                                 <p class="max-w-2xl mt-1 text-sm leading-5 text-gray-500">
-                                    Finish filling out your profile information.
+                                    
                                 </p>
                             </div>
 
@@ -93,9 +85,15 @@
                 </div>
             </div>
 
+
+        @else
+            <div class="items-center justify-center w-full mt-12 text-center">
+                <a href="{{ route('wave.dashboard') }}" class="inline-block w-auto px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-wave-600 hover:bg-wave-500 focus:outline-none focus:border-wave-700 focus:shadow-outline-wave active:bg-wave-700">
+                    Go to my Dashboard
+                </a>
+            </div>
         @endif
 
 	</div>
-    @endif
 
 @endsection
