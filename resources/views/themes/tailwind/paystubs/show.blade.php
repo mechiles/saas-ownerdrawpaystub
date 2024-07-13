@@ -43,44 +43,44 @@
     </div>
 
     <h2 class="font-semibold text-lg mb-2">Current Earnings</h2>
-    <table class="table-auto w-full border">
+    <table class="table-auto w-full border-separate rounded">
         <thead>
             <tr class="bg-blue-500 text-white">
-                <th class="border px-4 py-2 w-1/3">Description</th>
-                <th class="border px-4 py-2 w-1/3">Pay Date</th>
-                <th class="border px-4 py-2 w-1/3">Current Amount</th>
+                <th class=" px-4 py-2 w-1/3 rounded">Description</th>
+                <th class=" px-4 py-2 w-1/3 rounded">Pay Date</th>
+                <th class=" px-4 py-2 w-1/3 rounded">Current Amount</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="border px-4 py-2">Owner's Draw</td>
-                <td class="border px-4 py-2">{{ $paystub['payday'] }}</td>
-                <td class="border px-4 py-2">${{ number_format($paystub['netpayamount'], 2) }}</td>
+                <td class="border px-4 py-2 rounded">Owner's Draw</td>
+                <td class="border px-4 py-2 rounded">{{ $paystub['payday'] }}</td>
+                <td class="border px-4 py-2 rounded">${{ number_format($paystub['netpayamount'], 2) }}</td>
             </tr>
         </tbody>
     </table>
 
     <h2 class="font-semibold text-lg mb-2 mt-4">YTD Earnings</h2>
-    <table class="table-auto w-full border">
+    <table class="table-auto w-full border-separate rounded">
         <thead>
             <tr class="bg-blue-500 text-white">
-                <th class="border px-4 py-2 w-1/3">Description</th>
-                <th class="border px-4 py-2 w-1/3">Pay Date</th>
-                <th class="border px-4 py-2 w-1/3">Amount</th>
+                <th class="px-4 py-2 w-1/3 rounded">Description</th>
+                <th class=" px-4 py-2 w-1/3 rounded">Pay Date</th>
+                <th class=" px-4 py-2 w-1/3 rounded">Amount</th>
             </tr>
         </thead>
         <tbody>
             @foreach($prevOwnerDraws as $draw)
             <tr>
-                <td class="border px-4 py-2">Owner's Draw</td>
-                <td class="border px-4 py-2">{{ $draw['date']->format('Y-m-d') }}</td>
-                <td class="border px-4 py-2">${{ number_format($draw['amount'], 2) }}</td>
+                <td class="border px-4 py-2 rounded">Owner's Draw</td>
+                <td class="border px-4 py-2 rounded">{{ $draw['date']->format('Y-m-d') }}</td>
+                <td class="border px-4 py-2 rounded">${{ number_format($draw['amount'], 2) }}</td>
             </tr>
             @endforeach
             <tr>
-                <td class="border px-4 py-2">Owner's Draw</td>
-                <td class="border px-4 py-2">{{ $paystub['payday'] }}</td>
-                <td class="border px-4 py-2">${{ number_format($paystub['netpayamount'], 2) }}</td>
+                <td class="border px-4 py-2 rounded">Owner's Draw</td>
+                <td class="border px-4 py-2 rounded">{{ $paystub['payday'] }}</td>
+                <td class="border px-4 py-2 rounded">${{ number_format($paystub['netpayamount'], 2) }}</td>
             </tr>
         </tbody>
     </table>

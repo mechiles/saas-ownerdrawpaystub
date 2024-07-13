@@ -14,19 +14,19 @@
         <div class="mb-6">
             <h2 class="text-xl font-semibold mb-2">Step 1: Company Information</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input type="text" name="companyname" class="border p-2 w-full" placeholder="Company Name" required>
-                <input type="text" name="einno" class="border p-2 w-full" placeholder="EIN No." required>
-                <input type="text" name="companyphone" class="border p-2 w-full" placeholder="Phone No." required>
-                <input type="text" name="companystreet" class="border p-2 w-full col-span-2" placeholder="Company Address" required>
-                <input type="text" name="companycity" class="border p-2 w-full" placeholder="Company City" required>
-                <select name="companystate" class="border p-2 w-full" required>
+                <input type="text" name="companyname" class="border p-2 w-full rounded" placeholder="Company Name" required>
+                <input type="text" name="einno" class="border p-2 w-full rounded" placeholder="EIN No." required>
+                <input type="text" name="companyphone" class="border p-2 w-full rounded" placeholder="Phone No." required>
+                <input type="text" name="companystreet" class="border p-2 w-full col-span-2 rounded" placeholder="Company Address" required>
+                <input type="text" name="companycity" class="border p-2 w-full rounded" placeholder="Company City" required>
+                <select name="companystate" class="border p-2 w-full rounded" required>
                     <!-- Add options for states -->
                     <option value="">-- Select a State --</option>
                     <option value="TX">Texas</option>
                     <!-- Add other states here -->
                 </select>
-                <input type="text" name="companyzip" class="border p-2 w-full" placeholder="Company Zip Code" required>
-                <input type="text" name="companycountry" class="border p-2 w-full" value="United States" required readonly>
+                <input type="text" name="companyzip" class="border p-2 w-full rounded" placeholder="Company Zip Code" required>
+                <input type="text" name="companycountry" class="border p-2 w-full rounded" value="United States" required readonly>
             </div>
         </div>
 
@@ -34,23 +34,23 @@
         <div class="mb-6">
             <h2 class="text-xl font-semibold mb-2">Step 2: Employee Information</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <input type="text" name="firstname" class="border p-2 w-full" placeholder="First name" required>
-                <input type="text" name="middlename" class="border p-2 w-full" placeholder="Middle name">
-                <input type="text" name="lastname" class="border p-2 w-full" placeholder="Last name" required>
-                <input type="text" name="street" class="border p-2 w-full col-span-3" placeholder="Street Address" required>
-                <input type="text" name="city" class="border p-2 w-full" placeholder="City" required>
-                <select name="state" class="border p-2 w-full" required>
+                <input type="text" name="firstname" class="border p-2 w-full rounded" placeholder="First name" required>
+                <input type="text" name="middlename" class="border p-2 w-full rounded" placeholder="Middle name">
+                <input type="text" name="lastname" class="border p-2 w-full rounded" placeholder="Last name" required>
+                <input type="text" name="street" class="border p-2 w-full col-span-3 rounded" placeholder="Street Address" required>
+                <input type="text" name="city" class="border p-2 w-full rounded" placeholder="City" required>
+                <select name="state" class="border p-2 w-full rounded" required>
                     <!-- Add options for states -->
                     <option value="">-- Select a State --</option>
                     <option value="TX">Texas</option>
                     <!-- Add other states here -->
                 </select>
-                <input type="text" name="zip" class="border p-2 w-full" placeholder="Zip" required>
-                <input type="text" name="country" class="border p-2 w-full" value="United States" required readonly>
-                <input type="text" name="ssn" class="border p-2 w-full" placeholder="SSN Last Four" required>
-                <input type="text" name="title" class="border p-2 w-full" placeholder="Job Title" required>
-                <input type="text" name="employeeid" class="border p-2 w-full" placeholder="Employee ID" required>
-                <input type="email" name="email" class="border p-2 w-full col-span-3" placeholder="Email Address" required>
+                <input type="text" name="zip" class="border p-2 w-full rounded" placeholder="Zip" required>
+                <input type="text" name="country" class="border p-2 w-full rounded" value="United States" required readonly>
+                <input type="text" name="ssn" class="border p-2 w-full rounded" placeholder="SSN Last Four" required>
+                <input type="text" name="title" class="border p-2 w-full rounded" placeholder="Job Title" required>
+                <input type="text" name="employeeid" class="border p-2 w-full rounded" placeholder="Employee ID" required>
+                <input type="email" name="email" class="border p-2 w-full col-span-3 rounded" placeholder="Email Address" required>
             </div>
         </div>
 
@@ -58,11 +58,11 @@
         <div class="mb-6">
             <h2 class="text-xl font-semibold mb-2">Step 3: Enter your owner draw pay information</h2>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <input type="date" name="paystartday" class="border p-2 w-full" placeholder="Pay Period Start" required>
-                <input type="date" name="payendday" class="border p-2 w-full" placeholder="Pay Period End" required>
-                <input type="date" name="payday" class="border p-2 w-full" placeholder="Pay Date" required>
-                <input type="number" id="grossIncome" name="grossincome" class="border p-2 w-full" placeholder="Pay amount" required>
-                <input type="text" name="stubno" class="border p-2 w-full col-span-4" placeholder="Pay Stub Number" required>
+                <input type="date" name="paystartday" class="border p-2 w-full rounded" placeholder="Pay Period Start" required>
+                <input type="date" name="payendday" class="border p-2 w-full rounded" placeholder="Pay Period End" required>
+                <input type="date" name="payday" class="border p-2 w-full rounded" placeholder="Pay Date" required>
+                <input type="number" id="grossIncome" name="grossincome" class="border p-2 w-full rounded" placeholder="Pay amount" required>
+                <input type="text" name="stubno" class="border p-2 w-full col-span-4 rounded" placeholder="Pay Stub Number" required>
             </div>
         </div>
 
@@ -71,22 +71,22 @@
             <h2 class="text-xl font-semibold mb-2">Step 4: Enter your previous owner draws (optional)</h2>
             <div id="previous-owner-draws" class="space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="date" name="prevpayday[]" class="border p-2 w-full" placeholder="Prev. Pay Date">
-                    <input type="number" name="ownerdrawamount[]" class="border p-2 w-full pay-amount" placeholder="Prev. Pay Amount" onkeyup="Calculator()">
+                    <input type="date" name="prevpayday[]" class="border p-2 w-full rounded" placeholder="Prev. Pay Date">
+                    <input type="number" name="ownerdrawamount[]" class="border p-2 w-full pay-amount rounded" placeholder="Prev. Pay Amount" onkeyup="Calculator()">
                 </div>
             </div>
-            <button type="button" class="mt-4 bg-green-500 text-white px-4 py-2" onclick="addPreviousOwnerDraw()">Add Previous Owner Draws</button>
+            <button type="button" class="mt-4 bg-green-500 text-white px-4 py-2 rounded" onclick="addPreviousOwnerDraw()">Add Previous Owner Draws</button>
         </div>
 
         <!-- Net Pay and YTD Net Pay -->
         <div class="mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input type="text" id="netPayAmount" name="netpayamount" class="border p-2 w-full" style="background-color: #ADD8E6;" placeholder="Net Pay" readonly>
-                <input type="text" id="ytdNetPayAmount" class="border p-2 w-full" style="background-color: rgb(196, 173, 43);" placeholder="YTD Net Pay" readonly>
+                <input type="text" id="netPayAmount" name="netpayamount" class="border p-2 w-full rounded" style="background-color: #ADD8E6;" placeholder="Net Pay" readonly>
+                <input type="text" id="ytdNetPayAmount" class="border p-2 w-full rounded" style="background-color: rgb(196, 173, 43);" placeholder="YTD Net Pay" readonly>
             </div>
         </div>
 
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2">Preview Pay Stub</button>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Preview Pay Stub</button>
     </form>
 </div>
 
