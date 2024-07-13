@@ -25,12 +25,12 @@
                                 <div class="relative flex flex-col items-start justify-center w-full h-full px-16 py-8">
 
                                     <img src="https://www.courseqa.com/storage/images/CourseQA-white_1.png" class="z-20 w-auto rounded-md">
-                                    <h3 class="z-30 mt-1 mt-3 text-lg font-thin text-wave-200">The software for business owners.</h3>
+                                    <h3 class="z-30 mt-1 mt-3 text-lg font-thin text-wave-200">The pay stub software for business owners.</h3>
 
                                     <span class="relative z-20 inline-flex mt-5 rounded-md shadow-sm">
                                         <a href="{{ url('pricing') }}" class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border border-transparent rounded-md text-wave-500 hover:bg-gray-100 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-100">
-                                            Get started with Lifetime Access today.
-                                            <span class="absolute top-0 right-0 px-3 py-1 -mt-4 -mr-8 text-xs text-white rounded-full bg-wave-400">Free Trial</span>
+                                            Get started with a Limited Time Annual Offer!
+                                            <span class="absolute top-0 right-0 px-3 py-1 -mt-4 -mr-8 text-xs text-white rounded-full bg-wave-400">$19</span>
                                         </a>
                                     </span>
                                 </div>
@@ -47,7 +47,7 @@
                                             Accurate Information
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            The service provides accurate information and answers to questions.
+                                            The service provides accurate pay stub calculations.
                                         </p>
                                     </div>
                                 </a>
@@ -60,7 +60,7 @@
                                             Time-saving
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            Students can save time by quickly getting answers to their questions.
+                                            Business owners can save time by quickly generating owner draw pay stubs.
                                         </p>
                                     </div>
                                 </a>
@@ -73,7 +73,7 @@
                                             Improved Understanding
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                           The service provides in-depth answers that help students understand difficult concepts more easily.
+                                           Easily see how much you've earned over time with the full history of pay stubs provided.
                                         </p>
                                     </div>
                                 </a>
@@ -86,12 +86,10 @@
                                             Convenient
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                           Students can access the service from anywhere at any time, making it easy for them to get answers.
+                                           Business owners can access their pay stubs from anywhere at any time.
                                         </p>
                                     </div>
                                 </a>
-
-
 
                             </div>
 
@@ -105,7 +103,7 @@
                                         Affordable
                                     </p>
                                     <p class="text-sm leading-5 text-gray-500">
-                                        With a monthly fee of $5 or an annual fee of $50, the service is affordable for most students.
+                                        With inexpensive subscription plans, the service is affordable for any business owner.
                                     </p>
                                 </div>
                             </a>
@@ -118,7 +116,7 @@
                                             Personalized
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            The service uses context to provide personalized answers to the student's questions.
+                                            Owner Draw Pay Stub uses context provided by the business owner to create personalized financial documents.
                                         </p>
                                     </div>
                                 </a>
@@ -132,7 +130,7 @@
                                         Increased Confidence
                                     </p>
                                     <p class="text-sm leading-5 text-gray-500">
-                                        By getting accurate answers, students can  confident in their ability to solve problems and understand complex concepts.
+                                        By having a complete historical look at owner draw pay stubs, you'll never be lost with your earnings information again.
                                     </p>
                                 </div>
                             </a>
@@ -142,10 +140,10 @@
                                     </div>
                                     <div class="space-y-1">
                                         <p class="text-base font-medium leading-6 text-gray-900">
-                                            Improved Grades
+                                            Historical Records
                                         </p>
                                         <p class="text-sm leading-5 text-gray-500">
-                                            With better understanding and more accurate information, students are more likely to improve their grades and achieve their academic goals.
+                                            You'll be able to see all of your generated pay stubs in an easy-to-use centralized dashboard.
                                         </p>
                                     </div>
                                 </a>
@@ -164,9 +162,9 @@
     <a href="/#pricing" class="text-base font-medium leading-6 text-gray-500 transition duration-150 ease-in-out hover:text-wave-600 focus:outline-none focus:text-wave-600">
         Pricing
     </a>
-    <a href="{{ route('wave.blog') }}" class="text-base font-medium leading-6 text-gray-500 transition duration-150 ease-in-out hover:text-wave-600 focus:outline-none focus:text-wave-600">
+    <!-- <a href="{{ route('wave.blog') }}" class="text-base font-medium leading-6 text-gray-500 transition duration-150 ease-in-out hover:text-wave-600 focus:outline-none focus:text-wave-600">
         Blog
-    </a>
+    </a> -->
 
     <!-- <div @mouseenter="dropdown = true" @mouseleave="dropdown=false" @click.away="dropdown=false" x-data="{ dropdown: false }" class="relative h-full select-none">
         <div @click="dropdown = !dropdown" :class="{ 'text-wave-600': dropdown, 'text-gray-500': !dropdown }" class="inline-flex items-center h-full space-x-2 text-base font-medium leading-6 text-gray-500 transition duration-150 ease-in-out cursor-pointer select-none hover:text-wave-600 focus:outline-none focus:text-wave-500">
