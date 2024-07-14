@@ -12,8 +12,8 @@ class PaystubController extends Controller
 {
     public function create(Request $request)
     {
-        $formData = $request->session()->get('form_data', []);
-        return view('themes.tailwind.paystubs.create', compact('formData'));
+        $data = $request->session()->get('form_data', []);
+        return view('themes.tailwind.paystubs.create', compact('data'));
     }
 
     public function preview(Request $request)
@@ -59,6 +59,14 @@ class PaystubController extends Controller
                 $totalPrevOwnerDraws += floatval($amount);
             }
         }
+
+        // Calculate YTD Net Pay
+        $ytdNetPay = $validated['netpayamount'] + $totalPrevOwnerDraws;
+
+        // Store validated data in the session
+        $validated['totalPrevOwnerDraws'] = $totalPrevOwnerDraws;
+        $validated['ytdNetPay'] = $ytdNetPay;
+        $request->session()->put('form_data', $validated);
     
         // Add hidden inputs to the preview form
         $request->session()->flash('form_data', $validated);
