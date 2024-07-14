@@ -55,7 +55,7 @@
 
     <div class="flex sm:ml-6 sm:items-center">
 
-        @if( auth()->user()->onTrial() )
+        @if( auth()->user()->daysLeftOnTrial() > 0 )
             <div class="relative items-center justify-center hidden h-full md:flex">
                 <span class="px-3 py-1 text-xs text-red-600 bg-red-100 border border-gray-200 rounded-md">You have {{ auth()->user()->daysLeftOnTrial() }} @if(auth()->user()->daysLeftOnTrial() > 1){{ 'Days' }}@else{{ 'Day' }}@endif left on your Trial</span>
             </div>

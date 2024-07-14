@@ -37,8 +37,7 @@ Route::get('test', '\Wave\Http\Controllers\SubscriptionController@test');
 
 Route::group(['middleware' => 'wave'], function () {
 	Route::get('dashboard', '\Wave\Http\Controllers\DashboardController@index', function() {
-		$question = '';
-		$content = '';
+
 		return view('dashboard', compact('question', 'content'));
 	})->name('wave.dashboard');
 
@@ -47,26 +46,12 @@ Route::group(['middleware' => 'wave'], function () {
 	Route::post('paystubs/store', [PaystubController::class, 'store'])->name('paystubs.store');
 	Route::get('paystubs/{id}', [PaystubController::class, 'show'])->name('paystubs.show');
 	Route::get('paystubs/{id}/print', [PaystubController::class, 'print'])->name('paystubs.print');	
-
-	// Route::get('dashboard', function () {
-	//     $question = '';
-	//     $content = '';
-	//     return view('write', compact('question', 'content'));
-	// })->name('wave.dashboard');
-
-	Route::get('write', function () {
-		$question = '';
-		$content = '';
-		return view('write', compact('question', 'content'));
-	});
-
-	Route::any('write/generate', 'App\Http\Controllers\ArticleGenerator@index');
-
 });
 
 
 
 Route::group(['middleware' => 'auth'], function(){
+
 	Route::get('settings/{section?}', '\Wave\Http\Controllers\SettingsController@index')->name('wave.settings');
 
 	Route::post('settings/profile', '\Wave\Http\Controllers\SettingsController@profilePut')->name('wave.settings.profile.put');
@@ -93,6 +78,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::view('trial_over', 'theme::trial_over')->name('wave.trial_over');
 	Route::view('cancelled', 'theme::cancelled')->name('wave.cancelled');
     Route::post('switch-plans', '\Wave\Http\Controllers\SubscriptionController@switchPlans')->name('wave.switch-plans');
+	Route::get('/settings/plans', [SubscriptionController::class, 'showPlans'])->name('plans');
 });
 
 Route::group(['middleware' => 'admin.user'], function(){

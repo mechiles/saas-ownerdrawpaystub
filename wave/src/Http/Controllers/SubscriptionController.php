@@ -77,6 +77,16 @@ class SubscriptionController extends Controller
         $user->save();
     }
 
+    public function getSubscriptionDetails()
+    {
+        $user = auth()->user();
+        $subscription = $user->subscription; // Assuming you have a relationship setup
+        $plan = $subscription ? $subscription->plan : null;
+
+        return view('subscription.details', compact('subscription', 'plan'));
+    }
+
+
     public function checkout(Request $request){
 
         //PaddleSubscriptions
@@ -220,6 +230,23 @@ class SubscriptionController extends Controller
         return back()->with(['message' => 'Sorry, there was an issue updating your plan.', 'message_type' => 'danger']);
 
 
+    }
+
+    public function showPlans()
+    {
+        $user = auth()->user();
+        $activeSubscription = $user->subscriptions()
+            ->where('stripe_status', 'active')
+            ->first();
+
+        $activePlan = null;
+        if ($activeSubscription) {
+            $activePlan = Plan::where('role_id', $user->role_id)->first();
+        }
+
+        $plans = Plan::all();
+
+        return view('theme::plans-minimal', compact('activeSubscription', 'activePlan', 'plans'));
     }
 
 }
