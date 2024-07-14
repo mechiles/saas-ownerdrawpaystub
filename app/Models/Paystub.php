@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Paystub extends Model
 {
@@ -44,5 +45,6 @@ class Paystub extends Model
     public function prevOwnerDraws()
     {
         return $this->hasMany(PrevOwnerDraw::class, 'stubno', 'stubno')->where('user_id', Auth::id());
-    }    
+    }
+    
 }

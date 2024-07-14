@@ -144,6 +144,6 @@ class PaystubController extends Controller
     
         $pdf = Pdf::loadView('themes.tailwind.paystubs.print', compact('paystub', 'prevOwnerDraws', 'totalPrevOwnerDraws'));
         return $pdf->download('paystub.pdf');
-    }
+    }    
     
 }
