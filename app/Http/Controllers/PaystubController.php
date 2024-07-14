@@ -129,17 +129,21 @@ class PaystubController extends Controller
 
     public function print($id)
     {
-        $paystub = Paystub::with('prevOwnerDraws')->where('id', $id)->firstOrFail();
+        $paystub = Paystub::with(['prevOwnerDraws' => function ($query) {
+            $query->where('user_id', Auth::id());
+        }])->where('id', $id)->firstOrFail();
+    
         $prevOwnerDraws = $paystub->prevOwnerDraws->map(function($draw) {
             return [
                 'date' => new \DateTime($draw->prevpayday),
                 'amount' => $draw->ownerdrawamount
             ];
         })->sortBy('date')->values()->all();
-
+    
         $totalPrevOwnerDraws = collect($prevOwnerDraws)->sum('amount');
-
+    
         $pdf = Pdf::loadView('themes.tailwind.paystubs.print', compact('paystub', 'prevOwnerDraws', 'totalPrevOwnerDraws'));
         return $pdf->download('paystub.pdf');
     }
+    
 }

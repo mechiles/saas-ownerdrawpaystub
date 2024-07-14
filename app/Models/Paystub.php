@@ -43,6 +43,6 @@ class Paystub extends Model
 
     public function prevOwnerDraws()
     {
-        return $this->hasMany(PrevOwnerDraw::class, 'stubno', 'stubno'); // Specify custom foreign key and local key
-    }
+        return $this->hasMany(PrevOwnerDraw::class, 'stubno', 'stubno')->where('user_id', Auth::id());
+    }    
 }
