@@ -110,16 +110,20 @@ class PaystubController extends Controller
 
     public function show($id)
     {
-        $paystub = Paystub::with('prevOwnerDraws')->where('id', $id)->firstOrFail();
+        $paystub = Paystub::with('prevOwnerDraws')
+            ->where('id', $id)
+            ->where('user_id', Auth::id()) // Ensure it fetches only for the logged-in user
+            ->firstOrFail();
+    
         $prevOwnerDraws = $paystub->prevOwnerDraws->map(function($draw) {
             return [
                 'date' => new \DateTime($draw->prevpayday),
                 'amount' => $draw->ownerdrawamount
             ];
         })->sortBy('date')->values()->all();
-
+    
         $totalPrevOwnerDraws = collect($prevOwnerDraws)->sum('amount');
-
+    
         return view('themes.tailwind.paystubs.show', compact('paystub', 'prevOwnerDraws', 'totalPrevOwnerDraws'));
     }
 
