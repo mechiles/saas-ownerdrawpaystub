@@ -14,7 +14,8 @@ class PrevOwnerDraw extends Model
     protected $fillable = [
         'stubno',
         'prevpayday',
-        'ownerdrawamount'
+        'ownerdrawamount',
+        'user_id',
     ];
 
     public function paystub()

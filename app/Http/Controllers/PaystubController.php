@@ -100,6 +100,7 @@ class PaystubController extends Controller
                         'stubno' => $paystub->stubno,
                         'prevpayday' => $prevpayday,
                         'ownerdrawamount' => $validated['ownerdrawamount'][$index],
+                        'user_id' => Auth::id(),
                     ]);
                 }
             }
@@ -110,10 +111,9 @@ class PaystubController extends Controller
 
     public function show($id)
     {
-        $paystub = Paystub::with('prevOwnerDraws')
-            ->where('id', $id)
-            ->where('user_id', Auth::id()) // Ensure it fetches only for the logged-in user
-            ->firstOrFail();
+        $paystub = Paystub::with(['prevOwnerDraws' => function ($query) {
+            $query->where('user_id', Auth::id());
+        }])->where('id', $id)->firstOrFail();
     
         $prevOwnerDraws = $paystub->prevOwnerDraws->map(function($draw) {
             return [
