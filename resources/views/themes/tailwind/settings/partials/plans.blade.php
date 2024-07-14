@@ -30,7 +30,7 @@
 	@endsubscriber
 
 	@if( auth()->user()->daysLeftOnTrial() > 0 )
-		<p class="px-6 py-3 text-sm text-red-500 bg-red-100">You are currently {{ auth()->user()->daysLeftOnTrial() }} in the subscription trial period.</p>
+		<p class="px-6 py-3 text-sm text-red-500 bg-red-100">You are currently in the subscription trial period.</p>
 	@elseif(auth()->user()->subscribed('main'))
 		<h5 class="px-6 py-5 text-sm font-bold text-gray-500 bg-gray-100 border-t border-b border-gray-150">Switch Plans</h5>
 	@else
