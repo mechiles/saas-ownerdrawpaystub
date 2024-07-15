@@ -214,22 +214,22 @@ class SubscriptionController extends Controller
 
     }
 
-    // public function showPlans()
-    // {
-    //     $user = Auth::user();
-    //     $plans = Plan::all();
+    public function showPlans()
+    {
+        $user = Auth::user();
+        $plans = Plan::all();
     
-    //     $activePlan = DB::table('users')
-    //         ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
-    //         ->leftJoin('plans', 'subscriptions.stripe_price', '=', 'plans.plan_id')
-    //         ->leftJoin('roles', 'plans.role_id', '=', 'roles.id')
-    //         ->select('plans.slug', 'plans.plan_id')
-    //         ->where('users.id', $user->id)
-    //         ->where('subscriptions.stripe_status', 'active')
-    //         ->where('subscriptions.stripe_price', '=', 'plans.plan_id')
-    //         ->first();
+        $activePlan = DB::table('users')
+            ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
+            ->leftJoin('plans', 'subscriptions.stripe_price', '=', 'plans.plan_id')
+            ->leftJoin('roles', 'plans.role_id', '=', 'roles.id')
+            ->select('plans.slug', 'plans.plan_id')
+            ->where('users.id', $user->id)
+            ->where('subscriptions.stripe_status', 'active')
+            ->where('subscriptions.stripe_price', '=', 'plans.plan_id')
+            ->first();
     
-    //     return view('settings.plans', compact('plans', 'activePlan'));
-    // }
+        return view('settings.plans', compact('plans', 'activePlan'));
+    }
 
 }

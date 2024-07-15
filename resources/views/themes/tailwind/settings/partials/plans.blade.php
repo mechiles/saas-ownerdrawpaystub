@@ -38,7 +38,7 @@
     @endif
 
     <form id="@if(auth()->user()->subscribed('main')){{ 'update-plan-form' }}@else{{ 'payment-form' }}@endif" role="form" method="POST" action="@if(auth()->user()->subscribed('main')){{ route('wave.update_plan') }}@else{{ route('wave.subscribe') }}@endif">
-        @include('theme::partials.plans-minimal')
+        @include('theme::partials.plans-minimal', ['plans' => $plans])
 
         {{ csrf_field() }}
     </form>
