@@ -11,8 +11,9 @@ $activePlan = DB::table('users')
     ->whereColumn('subscriptions.stripe_price', 'plans.plan_id')
     ->first();
 
-echo($activePlan->slug);
+// echo($activePlan->slug);
 ?>
+{{ Auth::user()->id; }}
 <div class="flex flex-wrap w-full mx-auto divide-x divide-gray-100 divide-solid">
     @foreach(Wave\Plan::all() as $plan)
         @php $features = explode(',', $plan->features); @endphp
