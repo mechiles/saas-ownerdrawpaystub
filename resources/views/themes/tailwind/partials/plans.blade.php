@@ -7,12 +7,13 @@
                 <div class="px-10 pt-7">
                     <div class="absolute right-0 inline-block mr-6 transform">
                         <h2 class="relative z-20 w-full h-full px-2 py-1 text-xs font-bold leading-tight tracking-wide text-center uppercase bg-white border-2 @if($plan->default){{ 'border-wave-400 text-wave-500' }}@else{{ 'border-gray-900 text-gray-800' }}@endif rounded">{{ $plan->name }}</h2>
+
                     </div>
                 </div>
 
-                <div class="px-10 mt-5 text-center">
-                    <br /><span class="font-mono text-5xl font-bold">${{ $plan->price }}</span>
-                    <!-- <span class="text-lg font-bold text-gray-500">per year</span> -->
+                <div class="px-10 mt-5">
+                    <span class="font-mono text-5xl font-bold">${{ $plan->price }}</span>
+                    <span class="text-lg font-bold text-gray-500">per month</span>
                 </div>
 
                 <div class="px-10 mt-6 pb-9">
@@ -43,7 +44,7 @@
                 <div class="relative">
                         <div data-plan="{{ $plan->plan_id }}" class="@subscribed($plan->slug) checkout-update @notsubscribed checkout @endsubscribed  inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition duration-150 ease-in-out @if($plan->default){{ ' bg-gradient-to-r from-wave-600 to-indigo-500 hover:from-wave-500 hover:to-indigo-400' }}@else{{ 'bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 focus:shadow-outline-gray' }}@endif border border-transparent cursor-pointer rounded-b-md focus:outline-none disabled:opacity-25">
                             @subscribed($plan->slug)
-                                You're subscribed to this plan
+                                Your subscribed to this plan
                             @notsubscribed
                                 @subscriber
                                     Switch Plans
