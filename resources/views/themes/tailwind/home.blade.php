@@ -18,13 +18,17 @@
                     <div class="rounded-md">
                         <a href="{{ theme('home_cta_url') }}" class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-wave-500 hover:bg-wave-600 focus:outline-none focus:border-wave-600 focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10">
                             {{ theme('home_cta') }}
-                        </a>
+                        </a><br />
                     </div>
                 </div>
             </div>
             <div class="flex justify-center w-full mb-16 mx-auto">
                 <div class="relative invisible transition-none duration-1000 delay-100 transform translate-y-12 opacity-0" data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'>
-                    <img src="{{ Voyager::image(theme('home_promo_image')) }}" class="w-3/4 mx-auto">
+                    <!-- <img src="{{ Voyager::image(theme('home_promo_image')) }}" class="w-3/4 mx-auto"> -->
+                    <video width="650" controls>
+                         <source src="themes/tailwind/images/owner-draw-pay-stub-walk-through.mp4" type="video/mp4">
+                            Your browser does not support this video.
+                        </video>
                 </div>
             </div>
         </div>
