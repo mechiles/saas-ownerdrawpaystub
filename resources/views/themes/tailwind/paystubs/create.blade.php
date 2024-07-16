@@ -16,7 +16,7 @@
             <h2 class="text-xl font-semibold mb-2">Step 1: Company Information</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <input type="text" name="companyname" class="border p-2 w-full rounded" placeholder="Company Name" value="{{ old('companyname', $data['companyname'] ?? '') }}" required>
-                <input type="text" name="einno" class="border p-2 w-full rounded" placeholder="EIN No." value="{{ old('einno', $data['einno'] ?? '') }}" required>
+                <input type="text" name="einno" class="border p-2 w-full rounded" placeholder="EIN No. or Tax ID" value="{{ old('einno', $data['einno'] ?? '') }}" required>
                 <input type="text" name="companyphone" class="border p-2 w-full rounded" placeholder="Phone No." value="{{ old('companyphone', $data['companyphone'] ?? '') }}" required>
                 <input type="text" name="companystreet" class="border p-2 w-full col-span-2 rounded" placeholder="Company Address" value="{{ old('companystreet', $data['companystreet'] ?? '') }}" required>
                 <input type="text" name="companycity" class="border p-2 w-full rounded" placeholder="Company City" value="{{ old('companycity', $data['companycity'] ?? '') }}" required>

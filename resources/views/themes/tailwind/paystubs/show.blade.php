@@ -14,7 +14,7 @@
             <p>{{ $paystub['companystreet'] }}</p>
             <p>{{ $paystub['companycity'] }}, {{ $paystub['companystate'] }} {{ $paystub['companyzip'] }} {{ $paystub['companycountry'] }}</p>
             <p>Phone: {{ $paystub['companyphone'] }}</p>
-            <p>EIN: {{ $paystub['einno'] }}</p>
+            <p>EIN/Tax ID: {{ $paystub['einno'] }}</p>
         </div>
 
         <!-- Employee Information -->

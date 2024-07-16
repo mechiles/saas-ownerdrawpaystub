@@ -14,7 +14,7 @@
             <p>{{ $data['companystreet'] }}</p>
             <p>{{ $data['companycity'] }}, {{ $data['companystate'] }} {{ $data['companyzip'] }} {{ $data['companycountry'] }}</p>
             <p>Phone: {{ $data['companyphone'] }}</p>
-            <p>EIN: {{ $data['einno'] }}</p>
+            <p>EIN/Tax ID: {{ $data['einno'] }}</p>
         </div>
         <div>
             <h2 class="text-lg font-semibold">Employee Information</h2>
