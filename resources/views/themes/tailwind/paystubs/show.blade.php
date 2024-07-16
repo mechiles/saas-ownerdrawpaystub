@@ -13,7 +13,7 @@
             <p><strong>{{ $paystub['companyname'] }}</strong></p>
             <p>{{ $paystub['companystreet'] }}</p>
             <p>{{ $paystub['companycity'] }}, {{ $paystub['companystate'] }} {{ $paystub['companyzip'] }} {{ $paystub['companycountry'] }}</p>
-            <p>PHONE: {{ $paystub['companyphone'] }}</p>
+            <p>Phone: {{ $paystub['companyphone'] }}</p>
             <p>EIN: {{ $paystub['einno'] }}</p>
         </div>
 

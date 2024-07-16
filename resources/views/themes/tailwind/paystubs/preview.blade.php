@@ -13,7 +13,7 @@
             <p>{{ $data['companyname'] }}</p>
             <p>{{ $data['companystreet'] }}</p>
             <p>{{ $data['companycity'] }}, {{ $data['companystate'] }} {{ $data['companyzip'] }} {{ $data['companycountry'] }}</p>
-            <p>PHONE: {{ $data['companyphone'] }}</p>
+            <p>Phone: {{ $data['companyphone'] }}</p>
             <p>EIN: {{ $data['einno'] }}</p>
         </div>
         <div>
