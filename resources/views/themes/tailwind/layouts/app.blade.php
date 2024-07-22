@@ -32,7 +32,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@ownerdrawpay">
     <meta name="twitter:creator" content="@markechiles">
-    <meta name="twitter:title" content="{{ $seo->title }}">
+    <meta name="twitter:title" content="{{ setting('site.title') }}">
     <meta name="twitter:description" content="Owner Draw Pay Stub is the paystub software for business owners. We make it fast and simple to create owner draw pay stubs.">
     <meta name="twitter:image" content="https://www.ownerdrawpaystub.com/storage/themes/July2024/0bhQZCxwFuxVg2qMWslN.jpg">
 
