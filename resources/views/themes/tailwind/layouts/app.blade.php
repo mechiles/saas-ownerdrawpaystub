@@ -29,6 +29,13 @@
     <meta itemprop="description" content="{{ setting('site.description') }}">
     <meta itemprop="image" content="/storage/{{ setting('site.og_image') }}">
 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ownerdrawpay">
+    <meta name="twitter:creator" content="@markechiles">
+    <meta name="twitter:title" content="{{ $seo->title }}">
+    <meta name="twitter:description" content="Owner Draw Pay Stub is the paystub software for business owners. We make it fast and simple to create owner draw pay stubs.">
+    <meta name="twitter:image" content="https://www.ownerdrawpaystub.com/storage/themes/July2024/0bhQZCxwFuxVg2qMWslN.jpg">
+
     {{-- Social Share Open Graph Meta Tags --}}
     @if(isset($seo->title) && isset($seo->description) && isset($seo->image))
         <meta property="og:title" content="{{ $seo->title }}">
@@ -41,6 +48,8 @@
         <meta itemprop="name" content="{{ $seo->title }}">
         <meta itemprop="description" content="{{ $seo->description }}">
         <meta itemprop="image" content="{{ $seo->image }}">
+
+
 
         @if(isset($seo->image_w) && isset($seo->image_h))
             <meta property="og:image:width" content="{{ $seo->image_w }}">
