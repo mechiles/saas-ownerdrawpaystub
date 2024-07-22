@@ -18,7 +18,7 @@
 
     <link rel="icon" href="{{ setting('site.favicon', '/wave/favicon.png') }}" type="image/x-icon">
 
-    <meta property="og:image" content="{{ Request::url() }}/storage/{{ setting('site.og_image') }}">
+    <meta property="og:image" content="https://www.ownerdrawpaystub.com/storage/themes/July2024/0bhQZCxwFuxVg2qMWslN.jpg">
     <meta property="og:title" content="{{ setting('site.title') }}">
     <meta property="og:url" content="{{ Request::url() }}">
     <meta property="og:description" content="{{ setting('site.description') }}">
