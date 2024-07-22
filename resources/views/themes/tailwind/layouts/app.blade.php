@@ -21,7 +21,7 @@
     <meta property="og:image" content="https://www.ownerdrawpaystub.com/storage/themes/July2024/0bhQZCxwFuxVg2qMWslN.jpg">
     <meta property="og:title" content="{{ setting('site.title') }}">
     <meta property="og:url" content="{{ Request::url() }}">
-    <meta property="og:description" content="{{ setting('site.description') }}">
+    <meta property="og:description" content="Owner Draw Pay Stub is the paystub software for business owners. We make it fast and simple to create owner draw pay stubs.">
     <meta property="og:site_name" content="{{ setting('site.title') }}">
     <meta property="og:type" content="website">
 
