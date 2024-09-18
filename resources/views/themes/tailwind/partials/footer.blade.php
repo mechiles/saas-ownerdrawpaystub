@@ -109,7 +109,7 @@
                     </ul> -->
                 </div>
                 <div class="md:justify-self-end">
-                    <!-- <h3 class="font-semibold text-black"><a href="{{ route('wave.blog') }}" class="relative inline-block text-black group">Blog</a></h3> -->
+                    <h3 class="font-semibold text-black"><a href="{{ route('wave.blog') }}" class="relative inline-block text-black group">Blog</a></h3>
                     <!-- <ul class="mt-6 space-y-4 text-sm">
                         <li>
                             <a href="#_" class="relative inline-block text-black group">
