@@ -73,6 +73,34 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-NWW3L68K');</script>
     <!-- End Google Tag Manager -->
+    <!-- Rudderstack -->
+     <script type="text/javascript">
+        !function(){"use strict";window.RudderSnippetVersion="3.0.25";var e="rudderanalytics";window[e]||(window[e]=[])
+        ;var rudderanalytics=window[e];if(Array.isArray(rudderanalytics)){
+        if(true===rudderanalytics.snippetExecuted&&window.console&&console.error){
+        console.error("RudderStack JavaScript SDK snippet included more than once.")}else{rudderanalytics.snippetExecuted=true,
+        window.rudderAnalyticsBuildType="legacy";var sdkBaseUrl="https://cdn.rudderlabs.com/v3";var sdkName="rsa.min.js"
+        ;var scriptLoadingMode="async"
+        ;var n=["setDefaultInstanceKey","load","ready","page","track","identify","alias","group","reset","setAnonymousId","startSession","endSession","consent"]
+        ;for(var r=0;r<n.length;r++){var t=n[r];rudderanalytics[t]=function(n){return function(){var r
+        ;Array.isArray(window[e])?rudderanalytics.push([n].concat(Array.prototype.slice.call(arguments))):null===(r=window[e][n])||void 0===r||r.apply(window[e],arguments)
+        }}(t)}try{new Function('return import("")'),window.rudderAnalyticsBuildType="modern"}catch(o){}
+        var d=document.head||document.getElementsByTagName("head")[0]
+        ;var i=document.body||document.getElementsByTagName("body")[0];window.rudderAnalyticsAddScript=function(e,n,r){
+        var t=document.createElement("script");t.src=e,t.setAttribute("data-loader","RS_JS_SDK"),n&&r&&t.setAttribute(n,r),
+        "async"===scriptLoadingMode?t.async=true:"defer"===scriptLoadingMode&&(t.defer=true),
+        d?d.insertBefore(t,d.firstChild):i.insertBefore(t,i.firstChild)},window.rudderAnalyticsMount=function(){!function(){
+        if("undefined"==typeof globalThis){var e;var n=function getGlobal(){
+        return"undefined"!=typeof self?self:"undefined"!=typeof window?window:null}();n&&Object.defineProperty(n,"globalThis",{
+        value:n,configurable:true})}
+        }(),window.rudderAnalyticsAddScript("".concat(sdkBaseUrl,"/").concat(window.rudderAnalyticsBuildType,"/").concat(sdkName),"data-rsa-write-key","2mIsdfOD0UHjwc1S0qjpki7WFc8")
+        },
+        "undefined"==typeof Promise||"undefined"==typeof globalThis?window.rudderAnalyticsAddScript("https://polyfill-fastly.io/v3/polyfill.min.js?version=3.111.0&features=Symbol%2CPromise&callback=rudderAnalyticsMount"):window.rudderAnalyticsMount()
+        ;var loadOptions={}
+        ;rudderanalytics.load("2mIsdfOD0UHjwc1S0qjpki7WFc8","https://overwritemfny.dataplane.rudderstack.com",loadOptions)}}
+        }();
+        </script>
+      
 </head>
 <body class="flex flex-col min-h-screen bg-white">
  <!-- @if(Request::is('/')){{ 'bg-white' }}@else{{ 'bg-gray-50' }}@endif @if(config('wave.dev_bar')){{ 'pb-10' }}@endif"> -->
