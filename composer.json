@@ -26,6 +26,7 @@
         "openai-php/client": "^0.3.0",
         "openai-php/laravel": "^0.3.1",
         "spatie/laravel-googletagmanager": "^2.6",
+        "spatie/laravel-sitemap": "^6.4",
         "tcg/voyager": "1.5.x-dev",
         "tymon/jwt-auth": "@dev"
     },
