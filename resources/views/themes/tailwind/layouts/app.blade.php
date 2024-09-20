@@ -100,7 +100,9 @@
         ;rudderanalytics.load("2mIsdfOD0UHjwc1S0qjpki7WFc8","https://overwritemfny.dataplane.rudderstack.com",loadOptions)}}
         }();
         </script>
-      
+        <script type="text/javascript">
+            rudderanalytics.page();
+        </script>
 </head>
 <body class="flex flex-col min-h-screen bg-white">
  <!-- @if(Request::is('/')){{ 'bg-white' }}@else{{ 'bg-gray-50' }}@endif @if(config('wave.dev_bar')){{ 'pb-10' }}@endif"> -->
