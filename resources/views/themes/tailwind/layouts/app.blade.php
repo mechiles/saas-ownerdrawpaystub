@@ -106,7 +106,7 @@
             rudderanalytics.identify("{{ Auth::user()->id }}", {
                 email: "{{ Auth::user()->email }}",
                 name: "{{ Auth::user()->name }}"
-                username: "{{ '@' . $user->username }}"
+
             });
 
             // RudderStack page tracking
