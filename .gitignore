@@ -12,6 +12,9 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+composer.json
+composer.lock
+/public/sitemap.xml
 
 # Wave ignores.
 /public/.well-known
