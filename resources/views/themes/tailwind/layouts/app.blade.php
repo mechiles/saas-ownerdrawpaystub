@@ -74,7 +74,7 @@
         })(window,document,'script','dataLayer','GTM-NWW3L68K');</script>
     <!-- End Google Tag Manager -->
     <!-- Rudderstack -->
-     <script type="text/javascript">
+     <!-- <script type="text/javascript">
         !function(){"use strict";window.RudderSnippetVersion="3.0.25";var e="rudderanalytics";window[e]||(window[e]=[])
         ;var rudderanalytics=window[e];if(Array.isArray(rudderanalytics)){
         if(true===rudderanalytics.snippetExecuted&&window.console&&console.error){
@@ -100,17 +100,8 @@
         ;rudderanalytics.load("2mIsdfOD0UHjwc1S0qjpki7WFc8","https://overwritemfny.dataplane.rudderstack.com",loadOptions)}}
         }();
         </script>
+         -->
         
-        <script type="text/javascript">
-            // Laravel Auth::user() injected into the JavaScript
-            rudderanalytics.identify("{{ Auth::user()->id }}", {
-                email: "{{ Auth::user()->email }}",
-                name: "{{ Auth::user()->name }}"
-            });
-
-            // RudderStack page tracking
-            rudderanalytics.page();
-        </script>
         
 </head>
 <body class="flex flex-col min-h-screen bg-white">
@@ -155,6 +146,15 @@
         <script>setTimeout(function(){ popToast("{{ session('message_type') }}", "{{ session('message') }}"); }, 10);</script>
     @endif
     @waveCheckout
+    <script type="text/javascript">
+        // Laravel Auth::user() injected into the JavaScript
+        rudderanalytics.identify("{{ Auth::user()->id }}", {
+            email: "{{ Auth::user()->email }}",
+            name: "{{ Auth::user()->name }}"
+        });
 
+        // RudderStack page tracking
+        rudderanalytics.page();
+    </script>
 </body>
 </html>
