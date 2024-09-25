@@ -74,7 +74,7 @@
         })(window,document,'script','dataLayer','GTM-NWW3L68K');</script>
     <!-- End Google Tag Manager -->
     <!-- Rudderstack -->
-     <script type="text/javascript">
+     <!-- <script type="text/javascript">
         !function(){"use strict";window.RudderSnippetVersion="3.0.25";var e="rudderanalytics";window[e]||(window[e]=[])
         ;var rudderanalytics=window[e];if(Array.isArray(rudderanalytics)){
         if(true===rudderanalytics.snippetExecuted&&window.console&&console.error){
@@ -100,9 +100,18 @@
         ;rudderanalytics.load("2mIsdfOD0UHjwc1S0qjpki7WFc8","https://overwritemfny.dataplane.rudderstack.com",loadOptions)}}
         }();
         </script>
+         -->
         <script type="text/javascript">
+            // Laravel Auth::user() injected into the JavaScript
+            rudderanalytics.identify("{{ Auth::user()->id }}", {
+                email: "{{ Auth::user()->email }}",
+                name: "{{ Auth::user()->name }}"
+            });
+
+            // RudderStack page tracking
             rudderanalytics.page();
         </script>
+        
 </head>
 <body class="flex flex-col min-h-screen bg-white">
  <!-- @if(Request::is('/')){{ 'bg-white' }}@else{{ 'bg-gray-50' }}@endif @if(config('wave.dev_bar')){{ 'pb-10' }}@endif"> -->
