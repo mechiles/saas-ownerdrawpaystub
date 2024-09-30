@@ -101,17 +101,23 @@
         }();
         </script>
         
-        <script type="text/javascript">
-            // Laravel Auth::user() injected into the JavaScript
-            rudderanalytics.identify("{{ Auth::user()->id }}", {
-                email: "{{ Auth::user()->email }}",
-                name: "{{ Auth::user()->name }}"
+        @if (Auth::check())
+            <script type="text/javascript">
+                // Laravel Auth::user() injected into the JavaScript for authenticated users
+                rudderanalytics.identify("{{ Auth::user()->id }}", {
+                    email: "{{ Auth::user()->email }}",
+                    name: "{{ Auth::user()->name }}"
+                });
 
-            });
-
-            // RudderStack page tracking
-            rudderanalytics.page();
-        </script>
+                // RudderStack page tracking
+                rudderanalytics.page();
+            </script>
+        @else
+            <script type="text/javascript">
+                // RudderStack page tracking for non-authenticated users
+                rudderanalytics.page();
+            </script>
+        @endif
         
 </head>
 <body class="flex flex-col min-h-screen bg-white">
