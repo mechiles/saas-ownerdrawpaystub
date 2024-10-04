@@ -24,8 +24,8 @@ class PaystubController extends Controller
         // If no manual entries exist, fetch from the Paystub table
         // if ($prevOwnerDraws->isEmpty()) {
             $prevPayStubs = Paystub::where('user_id', Auth::id())
-                ->select('stubno','payday as prevpayday', \DB::raw('MAX(grossincome) as ownerdrawamount'), \DB::raw('MAX(id) as id'))
-                ->groupBy('stubno', 'payday')
+                ->select('stubno','payday as prevpayday', 'companyname', \DB::raw('MAX(grossincome) as ownerdrawamount'), \DB::raw('MAX(id) as id'))
+                ->groupBy('stubno', 'payday', 'companyname')
                 ->orderBy('payday', 'asc')
                 ->get();
         // }
@@ -135,14 +135,15 @@ class PaystubController extends Controller
             return redirect()->route('paystubs.create');
         }
 
-        // Validate that the Pay Stub Number is unique for the user
+        // Validate that the Pay Stub Number is unique for the user and company selected
         $existingPaystub = Paystub::where('user_id', Auth::id())
             ->where('stubno', $validated['stubno'])
+            ->where('companyname', $validated['companyname'])
             ->first();
 
         // If a paystub with the same number exists, redirect back with an error
         if ($existingPaystub) {
-            return redirect()->route('paystubs.create')->withErrors(['stubno' => 'The Pay Stub Number already exists.']);
+            return redirect()->route('paystubs.create')->withErrors(['stubno' => 'The Pay Stub Number already exists for this company.']);
         }
 
         // Add the authenticated user's ID to the validated data

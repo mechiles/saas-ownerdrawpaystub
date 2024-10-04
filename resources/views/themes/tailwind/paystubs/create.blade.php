@@ -102,7 +102,7 @@
                     <div class="flex items-center">
                         <input type="checkbox" name="selected_prev_paystubs[]" value="{{ $draw->id }}" data-amount="{{ $draw->ownerdrawamount }}" class="mr-2">
                         <label for="draw_{{ $draw->id }}" class="text-md">
-                            Pay Stub Number: {{ $draw->stubno}} | Pay Date: {{ $draw->prevpayday }} | Amount: ${{ number_format($draw->ownerdrawamount, 2) }}
+                            Company: {{ $draw->companyname }} | Pay Stub Number: {{ $draw->stubno}} | Pay Date: {{ $draw->prevpayday }} | Amount: ${{ number_format($draw->ownerdrawamount, 2) }}
                         </label>
                     </div>
                 @endforeach
