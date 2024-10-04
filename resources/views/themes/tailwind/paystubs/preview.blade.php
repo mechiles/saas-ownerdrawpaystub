@@ -71,6 +71,11 @@
                     <td class="border px-4 py-2 w-1/3 rounded">${{ number_format($earning['amount'], 2) }}</td>
                 </tr>
             @endforeach
+                <tr>
+                    <td class="border px-4 py-2 w-1/3 rounded">Owner's Draw</td>
+                    <td class="border px-4 py-2 w-1/3 rounded">{{ $data['payday'] }}</td>
+                    <td class="border px-4 py-2 w-1/3 rounded">${{ number_format($data['grossincome'], 2) }}</td>
+                </tr>
             </tbody>
         </table>
     </div>

@@ -55,7 +55,7 @@ $user = Auth::user()->id;
                     echo '<p class="text-sm leading-5 text-gray-500 mt">You haven\'t created any paystubs, yet.</p>';
                 } else {
                 ?>
-                <table class="min-w-full bg-white">
+                <table class="min-w-full text-center bg-white">
                     <thead class="bg-gray-200 text-gray-600">
                         <tr>
                             <th class="py-2 px-4 border">Paystub No</th>
