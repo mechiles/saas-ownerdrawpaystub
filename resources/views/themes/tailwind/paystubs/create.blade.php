@@ -7,6 +7,11 @@
 
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold mb-4">Owner Draw Pay Stub</h1>
+    @if($errors->has('stubno'))
+        <div class="alert alert-danger items-center text-xl font-semibold text-center text-red-600">
+            {{ $errors->first('stubno') }}
+        </div>
+    @endif
 
     <form action="{{ route('paystubs.preview') }}" method="POST" class="space-y-8" onsubmit="return updateHiddenNetPay()">
         @csrf
@@ -77,33 +82,63 @@
                 </div>
                 <div>
                     <label for="stubno" class="block text-md font-medium text-gray-700">Pay Stub Number</label>
-                    <input type="text" name="stubno" class="border p-2 w-full col-span-4 rounded" placeholder="Pay Stub Number" value="{{ old('stubno', $data['stubno'] ?? '') }}" required>
+                    <!-- <input type="text" name="stubno" class="border p-2 w-full col-span-4 rounded" placeholder="Pay Stub Number" value="{{ old('stubno', $data['stubno'] ?? '') }}" required> -->
+                    <input type="text" name="stubno" id="stubno" placeholder="Pay Stub Number" class="border p-2 w-full col-span-4 rounded form-input {{ $errors->has('stubno') ? 'is-invalid' : '' }}" value="{{ old('stubno', $data['stubno'] ?? '') }}" required>
+                    @if($errors->has('stubno'))
+                    <div class="alert alert-danger items-center text-xl font-semibold text-center text-red-600">
+                        {{ $errors->first('stubno') }}
+                    </div>
+                @endif
                 </div>
             </div>
         </div>
 
         <!-- Step 4: Previous Owner Draws -->
+        <!-- Select previous owner draws -->
         <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">Step 4: Enter your previous owner draws (optional)</h2>
-            <div id="previous-owner-draws" class="space-y-4">
-                @if (old('prevpayday', $data['prevpayday'] ?? []))
-                    @foreach (old('prevpayday', $data['prevpayday'] ?? []) as $index => $prevpayday)
-                        <div class="flex previous-owner-draw-row">
-                            <div class="mb-4 mr-5">
-                                <label for="prevpayday" class="block text-md font-medium text-gray-700">Previous Pay Date</label>
-                                <input type="date" name="prevpayday[]" class="border p-2 w-full rounded" value="{{ $prevpayday }}">
-                            </div>
-                            <div class="mb-4">
-                                <label for="ownerdrawamount" class="block text-md font-medium text-gray-700">Previous Pay Amount</label>
-                                <input type="number" name="ownerdrawamount[]" class="border p-2 w-full pay-amount rounded" value="{{ old('ownerdrawamount.' . $index, $data['ownerdrawamount'][$index] ?? '') }}" onkeyup="Calculator()">
-                            </div>
-                            <a href="#" class="remove_field" align="center"><i class="fa fa-trash-o" id="remove_field" style="font-size:24px;color:red;"></i></a>
-                        </div>
-                    @endforeach
-                @endif
+            <h2 class="text-xl font-semibold mb-2">Step 4a: Select your previous paystubs (optional)</h2>
+            <div class="space-y-4">
+                @foreach ($prevPayStubs as $draw)
+                    <div class="flex items-center">
+                        <input type="checkbox" name="selected_prev_paystubs[]" value="{{ $draw->id }}" data-amount="{{ $draw->ownerdrawamount }}" class="mr-2">
+                        <label for="draw_{{ $draw->id }}" class="text-md">
+                            Company: {{ $draw->companyname }} | Pay Stub Number: {{ $draw->stubno}} | Pay Date: {{ $draw->prevpayday }} | Amount: ${{ number_format($draw->ownerdrawamount, 2) }}
+                        </label>
+                    </div>
+                @endforeach
             </div>
-            <button type="button" class="mt-4 bg-green-500 text-white px-4 py-2 rounded" onclick="addPreviousOwnerDraw()">Add Previous Owner Draws</button>
         </div>
+         <!-- Manually enter previous owner draws -->
+        <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Step 4b: Manually enter your previous owner draws (optional)</h2>
+        <div id="previous-owner-draws" class="space-y-4">
+            @php
+                $prevPaydays = old('prevpayday', $data['prevpayday'] ?? []);
+                $ownerDrawAmounts = old('ownerdrawamount', $data['ownerdrawamount'] ?? []);
+            @endphp
+
+            @foreach ($prevPaydays as $index => $prevpayday)
+                <div class="flex previous-owner-draw-row">
+                    <div class="mb-4 mr-5">
+                        <label for="prevpayday" class="block text-md font-medium text-gray-700">Previous Pay Date</label>
+                        <input type="date" name="prevpayday[]" class="border p-2 w-full rounded" value="{{ $prevpayday }}">
+                    </div>
+                    <div class="mb-4">
+                        <label for="ownerdrawamount" class="block text-md font-medium text-gray-700">Previous Pay Amount</label>
+                        <input type="number" name="ownerdrawamount[]" class="border p-2 w-full pay-amount rounded" value="{{ $ownerDrawAmounts[$index] ?? '' }}" onkeyup="Calculator()">
+                    </div>
+                    <a href="#" class="remove_field" align="center"><i class="fa fa-trash-o" id="remove_field" style="font-size:24px;color:red;"></i></a>
+                </div>
+            @endforeach
+        </div>
+        <button type="button" class="mt-4 bg-green-500 text-white px-4 py-2 rounded" onclick="addPreviousOwnerDraw()">Add Previous Owner Draws</button>
+    </div>
+
+        <!-- @if($prevOwnerDraws->count())
+            @foreach ($prevOwnerDraws as $draw)
+                <p>Testing {{ $draw->prevpayday }} - ${{ $draw->ownerdrawamount }}</p>
+            @endforeach
+        @endif -->
 
         <!-- Net Pay and YTD Net Pay -->
         <div class="mb-6">
@@ -155,6 +190,12 @@ function Calculator() {
         ytdNetPay += parseFloat(this.value) || 0;
     });
 
+    // Add selected previous draws to YTD Net Pay
+    $('input[name="selected_prev_paystubs[]"]:checked').each(function() {
+        var drawAmount = parseFloat($(this).data('amount')) || 0;
+        ytdNetPay += drawAmount;
+    });
+
     $('#ytdNetPayAmount').val(ytdNetPay);
     $('#hiddenYtdNetPayAmount').val(ytdNetPay); // Ensure hidden input value is updated
 }
@@ -167,35 +208,62 @@ function updateHiddenNetPay() {
 
 document.getElementById('grossIncome').addEventListener('input', Calculator);
 
-$(document).on('input', '.pay-amount', function() {
-    Calculator();
+$(document).on('change', 'input[name="selected_prev_paystubs[]"]', function() {
+    Calculator();  // Recalculate when checkboxes change
 });
+$('select[name="selected_prev_paystubs[]"]').on('change', Calculator);
 
 $(document).ready(function() {
-    var wrapper = $(".input_fields_wrap");
-    var add_button = $(".add_field_button");
-    $(add_button).click(function(e) {
+    $(document).on("click", ".remove_field", function(e) {
         e.preventDefault();
-        $(wrapper).append('<div class="flex previous-owner-draw-row">\
-            <div class="mb-4 mr-5" id="holder">\
-                <small id="label" for="input">Prev. Pay Date</small>\
-                <input type="date" class="block w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="prevpayday[]" placeholder="mm/dd/yyyy" id="datepicker">\
-            </div>\
-            <div class="mb-4">\
-                <small id="label" for="input">Prev. Pay Amount</small>\
-                <input type="text" class="block w-full border border-gray-400 p-2 rounded pay-amount" name="ownerdrawamount[]" id="ownerdrawamount[]" placeholder="Owner Draw amount"/ onkeyup="Calculator()">\
-            </div>\
-            <a href="#" class="remove_field" align="center"><i class="fa fa-trash-o" id="remove_field" style="font-size:24px;color:red;"></i></a>\
-            </div>');
+        $(this).closest('.previous-owner-draw-row').remove();
+        Calculator();  // Recalculate values after removal
     });
-    //user click on remove text
-    $(wrapper).on("click", ".remove_field", function(e) {
-        e.preventDefault();
-        $(this).parent('.previous-owner-draw-row').remove();
-        // Called Calculator function to make changes
-        Calculator();
-    })
 });
+
+window.onload = function() {
+    // Check if the 'is-invalid' class is present on the stubno field
+    var stubnoField = document.getElementById('stubno');
+    if(stubnoField && stubnoField.classList.contains('is-invalid')) {
+        stubnoField.focus();
+    }
+};
+
+// $(document).ready(function() {
+//     var wrapper = $(".input_fields_wrap");
+//     var add_button = $(".add_field_button");
+//     $(add_button).click(function(e) {
+//         e.preventDefault();
+//         $(wrapper).append('<div class="flex previous-owner-draw-row">\
+//             <div class="mb-4 mr-5" id="holder">\
+//                 <small id="label" for="input">Prev. Pay Date</small>\
+//                 <input type="date" class="block w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="prevpayday[]" placeholder="mm/dd/yyyy" id="datepicker">\
+//             </div>\
+//             <div class="mb-4">\
+//                 <small id="label" for="input">Prev. Pay Amount</small>\
+//                 <input type="text" class="block w-full border border-gray-400 p-2 rounded pay-amount" name="ownerdrawamount[]" id="ownerdrawamount[]" placeholder="Owner Draw amount"/ onkeyup="Calculator()">\
+//             </div>\
+//             <a href="#" class="remove_field" align="center"><i class="fa fa-trash-o" id="remove_field" style="font-size:24px;color:red;"></i></a>\
+//             </div>');
+//     });
+//     //user click on remove text
+//     $(wrapper).on("click", ".remove_field", function(e) {
+//         e.preventDefault();
+//         $(this).parent('.previous-owner-draw-row').remove();
+//         // Called Calculator function to make changes
+//         Calculator();
+//     })
+// });
 </script>
+
+<!-- @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif -->
 
 @endsection
