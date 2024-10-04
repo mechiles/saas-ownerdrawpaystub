@@ -1,9 +1,6 @@
 @extends('theme::layouts.app')
 
 @section('content')
-<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-
 <div class="container mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold mb-4">Owner Draw Pay Stub Preview</h1>
 
@@ -32,28 +29,28 @@
             <br />
             <h2 class="text-lg font-semibold">Summary</h2>
             <p>Net Pay: ${{ number_format($data['netpayamount'], 2) }}</p>
-            <p>YTD Net Pay: ${{ number_format($data['ytdNetPay'], 2) }}</p>
+            <p>YTD Net Pay: ${{ number_format($data['ytdnetpayamount'], 2) }}</p>
         </div>
     </div>
 
     <div class="mb-4">
         <h2 class="text-lg font-semibold">Current Earnings</h2>
         <table class="table-auto w-full border-separate">
-        <thead>
-            <tr class="bg-blue-500 text-white">
-                <th class="px-4 py-2 w-1/3 rounded">Description</th>
-                <th class="px-4 py-2 w-1/3 rounded">Pay Date</th>
-                <th class="px-4 py-2 w-1/3 rounded">Current Amount</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="border px-4 py-2 w-1/3 rounded">Owner's Draw</td>
-                <td class="border px-4 py-2 w-1/3 rounded">{{ $data['payday'] }}</td>
-                <td class="border px-4 py-2 w-1/3 rounded">${{ number_format($data['grossincome'], 2) }}</td>
-            </tr>
-        </tbody>
-    </table>
+            <thead>
+                <tr class="bg-blue-500 text-white">
+                    <th class="px-4 py-2 w-1/3 rounded">Description</th>
+                    <th class="px-4 py-2 w-1/3 rounded">Pay Date</th>
+                    <th class="px-4 py-2 w-1/3 rounded">Current Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2 w-1/3 rounded">Owner's Draw</td>
+                    <td class="border px-4 py-2 w-1/3 rounded">{{ $data['payday'] }}</td>
+                    <td class="border px-4 py-2 w-1/3 rounded">${{ number_format($data['grossincome'], 2) }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <div class="mb-4">
@@ -67,28 +64,15 @@
                 </tr>
             </thead>
             <tbody>
-                @if (!empty($data['prevpayday']) && !empty($data['ownerdrawamount']))
-                    @foreach ($data['prevpayday'] as $index => $prevpayday)
-                        @if (!empty($prevpayday) && isset($data['ownerdrawamount'][$index]) && $data['ownerdrawamount'][$index] > 0)
-                            <tr>
-                                <td class="border px-4 py-2 w-1/3 rounded">Owner's Draw</td>
-                                <td class="border px-4 py-2 w-1/3 rounded">{{ $prevpayday }}</td>
-                                <td class="border px-4 py-2 w-1/3 rounded">${{ number_format($data['ownerdrawamount'][$index], 2) }}</td>
-                            </tr>
-                        @endif
-                    @endforeach
-                @endif
+            @foreach($allEarnings as $earning)
                 <tr>
-                    <td class="border px-4 py-2 rounded">Owner's Draw</td>
-                    <td class="border px-4 py-2 rounded">{{ $data['payday'] }}</td>
-                    <td class="border px-4 py-2 rounded">${{ number_format($data['grossincome'], 2) }}</td>
+                    <td class="border px-4 py-2 w-1/3 rounded">Owner's Draw</td>
+                    <td class="border px-4 py-2 w-1/3 rounded">{{ $earning['payday'] }}</td>
+                    <td class="border px-4 py-2 w-1/3 rounded">${{ number_format($earning['amount'], 2) }}</td>
                 </tr>
+            @endforeach
             </tbody>
         </table>
-    </div>
-
-    <div class="mb-4">
-        
     </div>
 
     <div class="flex space-x-4 mt-4">
@@ -97,6 +81,7 @@
         </form>
         <form action="{{ route('paystubs.store') }}" method="POST">
             @csrf
+            <!-- Hidden inputs for company and employee information -->
             <input type="hidden" name="companyname" value="{{ $data['companyname'] }}">
             <input type="hidden" name="einno" value="{{ $data['einno'] }}">
             <input type="hidden" name="companyphone" value="{{ $data['companyphone'] }}">
@@ -123,12 +108,24 @@
             <input type="hidden" name="grossincome" value="{{ $data['grossincome'] }}">
             <input type="hidden" name="stubno" value="{{ $data['stubno'] }}">
             <input type="hidden" name="netpayamount" value="{{ $data['netpayamount'] }}">
+            <input type="hidden" name="netpayamount" value="{{ $data['ytdnetpayamount'] }}">
+
+            <!-- Hidden inputs for manual owner draws -->
             @foreach ($data['prevpayday'] ?? [] as $index => $prevpayday)
                 <input type="hidden" name="prevpayday[]" value="{{ $prevpayday }}">
                 <input type="hidden" name="ownerdrawamount[]" value="{{ $data['ownerdrawamount'][$index] }}">
             @endforeach
+
+            <!-- Hidden inputs for previous paystubs -->
+            @foreach ($prevPaystubs ?? [] as $paystub)
+                <input type="hidden" name="selected_prev_paystubs[]" value="{{ $paystub['id'] }}">
+                <input type="hidden" name="prevpayday[]" value="{{ $paystub['payday'] }}">
+                <input type="hidden" name="ownerdrawamount[]" value="{{ $paystub['amount'] }}">
+            @endforeach
+
             <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Save Pay Stub</button>
         </form>
+
     </div>
 </div>
 @endsection
